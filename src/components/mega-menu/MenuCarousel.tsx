@@ -1,0 +1,91 @@
+import React, { createRef } from 'react';
+import Slider, { Settings } from 'react-slick';
+// next
+import NextLink from 'next/link';
+// @mui
+import { useTheme } from '@mui/material/styles';
+import { Box, Link, SxProps } from '@mui/material';
+//
+import Image from '../Image';
+import TextMaxLine from '../TextMaxLine';
+import { CarouselDots, CarouselArrows } from '../carousel';
+import { MegaMenuProduct } from './types';
+
+// ----------------------------------------------------------------------
+
+export interface MenuCarouselProps {
+  numberShow?: number;
+  products?: MegaMenuProduct[];
+  sx?: SxProps;
+};
+
+export default function MenuCarousel({ products = [], numberShow, sx }: MenuCarouselProps) {
+  const theme = useTheme();
+  const carouselRef = createRef<Slider>();
+  const [productIndex, setProductIndex] = React.useState(0);
+
+  const settings: Settings = {
+    dots: true,
+    arrows: false,
+    slidesToShow: numberShow,
+    slidesToScroll: numberShow,
+    rtl: Boolean(theme.direction === 'rtl'),
+    ...CarouselDots({setIndex: setProductIndex}),
+  }
+
+  const handlePrevious = () => {
+    carouselRef.current?.slickPrev();
+  };
+
+  const handleNext = () => {
+    carouselRef.current?.slickNext();
+  };
+
+  return (
+    <Box sx={{ position: 'relative', ...sx }}>
+      <CarouselArrows
+        filled
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+        sx={{
+          '& .arrow button': {
+            p: 0,
+            width: 24,
+            height: 24,
+            top: -20,
+          },
+        }}
+        index={productIndex}
+      >
+        <Slider ref={carouselRef} {...settings}>
+          {products.map((product) => (
+            <Box key={product.name} sx={{ px: 1, textAlign: 'center' }}>
+              <NextLink href={product.path} passHref>
+                <Link
+                  color="inherit"
+                  underline="none"
+                  sx={{
+                    display: 'block',
+                    transition: (theme) => theme.transitions.create('all'),
+                    '&:hover': { color: 'primary.main' },
+                  }}
+                >
+                  <Image
+                    alt={product.image}
+                    src={product.image}
+                    ratio="1/1"
+                    disabledEffect
+                    sx={{ borderRadius: 1, mb: 1 }}
+                  />
+                  <TextMaxLine line={2} variant="caption" sx={{ fontWeight: 'fontWeightMedium' }}>
+                    {product.name}
+                  </TextMaxLine>
+                </Link>
+              </NextLink>
+            </Box>
+          ))}
+        </Slider>
+      </CarouselArrows>
+    </Box>
+  );
+}
