@@ -17,7 +17,7 @@ export interface MenuCarouselProps {
   numberShow?: number;
   products?: MegaMenuProduct[];
   sx?: SxProps;
-};
+}
 
 export default function MenuCarousel({ products = [], numberShow, sx }: MenuCarouselProps) {
   const theme = useTheme();
@@ -30,8 +30,8 @@ export default function MenuCarousel({ products = [], numberShow, sx }: MenuCaro
     slidesToShow: numberShow,
     slidesToScroll: numberShow,
     rtl: Boolean(theme.direction === 'rtl'),
-    ...CarouselDots({setIndex: setProductIndex}),
-  }
+    ...CarouselDots({ setIndex: setProductIndex }),
+  };
 
   const handlePrevious = () => {
     carouselRef.current?.slickPrev();

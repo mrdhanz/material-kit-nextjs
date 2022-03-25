@@ -27,7 +27,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export interface NavbarAccountProps {
   isCollapse?: boolean;
-};
+}
 
 export default function NavbarAccount({ isCollapse }: NavbarAccountProps) {
   const { user } = useAuth();

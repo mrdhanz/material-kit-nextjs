@@ -8,7 +8,7 @@ import { Switch, FormControlLabel, FormControlLabelProps } from '@mui/material';
 export interface RHFSwitchProps extends FormControlLabelProps {
   name: string;
   [key: string]: any;
-};
+}
 
 export default function RHFSwitch({ name, ...other }: RHFSwitchProps) {
   const { control } = useFormContext();

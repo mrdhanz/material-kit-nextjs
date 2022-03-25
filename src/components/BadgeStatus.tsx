@@ -3,8 +3,9 @@ import { styled, Theme } from '@mui/material/styles';
 import React from 'react';
 import { MUIStyledCommonProps } from '@mui/system';
 // ----------------------------------------------------------------------
-export interface BadgeStatusProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
-  MUIStyledCommonProps<Theme> {
+export interface BadgeStatusProps
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
+    MUIStyledCommonProps<Theme> {
   status: 'offline' | 'away' | 'busy' | 'online' | 'invisible' | 'unread';
   size?: 'small' | 'medium' | 'large';
   [key: string]: any;

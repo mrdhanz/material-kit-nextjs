@@ -87,10 +87,7 @@ export default function Login() {
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
               Hi, Welcome Back
             </Typography>
-            <Image
-              src="/images/illustration_login.png"
-              alt="login"
-            />
+            <Image src="/images/illustration_login.png" alt="login" />
           </SectionStyle>
         )}
 
@@ -106,12 +103,7 @@ export default function Login() {
 
               <Tooltip title={capitalCase(method)} placement="right">
                 <>
-                  <Image
-                    disabledEffect
-                    alt={method}
-                    src={`/icons/ic_${method}.png`}
-                    sx={{ width: 32, height: 32 }}
-                  />
+                  <Image disabledEffect alt={method} src={`/icons/ic_${method}.png`} sx={{ width: 32, height: 32 }} />
                 </>
               </Tooltip>
             </Stack>

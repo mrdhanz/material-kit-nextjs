@@ -48,20 +48,14 @@ export default function HomeColorPresets() {
         <m.div variants={varFade().inUp}>
           <Typography
             sx={{
-              color: (theme) =>
-                theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary',
+              color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary'),
             }}
           >
             Express your own style with just one click.
           </Typography>
         </m.div>
 
-        <RadioGroup
-          name="themeColorPresets"
-          value={themeColorPresets}
-          onChange={onChangeColor}
-          sx={{ my: 5 }}
-        >
+        <RadioGroup name="themeColorPresets" value={themeColorPresets} onChange={onChangeColor} sx={{ my: 5 }}>
           <Stack
             direction={{ xs: 'row', lg: 'column' }}
             justifyContent="center"
@@ -78,9 +72,7 @@ export default function HomeColorPresets() {
 
               return (
                 <Tooltip key={colorName} title={capitalCase(colorName)} placement="right">
-                  <CardActionArea
-                    sx={{ color: colorValue, borderRadius: '50%', width: 32, height: 32 }}
-                  >
+                  <CardActionArea sx={{ color: colorValue, borderRadius: '50%', width: 32, height: 32 }}>
                     <Box
                       sx={{
                         width: 1,
@@ -135,30 +127,18 @@ export default function HomeColorPresets() {
         </RadioGroup>
 
         <Box sx={{ position: 'relative' }}>
-          <Image
-            disabledEffect
-            alt="grid"
-            src="/images/grid.png"
-          />
+          <Image disabledEffect alt="grid" src="/images/grid.png" />
 
           <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inUp}>
-              <Image
-                disabledEffect
-                alt="screen"
-                src={`/images/screen-${themeColorPresets}.png`}
-              />
+              <Image disabledEffect alt="screen" src={`/images/screen-${themeColorPresets}.png`} />
             </m.div>
           </Box>
 
           <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inDown}>
               <m.div animate={{ y: [0, -15, 0] }} transition={{ duration: 8, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`/images/block1-${themeColorPresets}.png`}
-                />
+                <Image disabledEffect alt="sidebar" src={`/images/block1-${themeColorPresets}.png`} />
               </m.div>
             </m.div>
           </Box>
@@ -166,11 +146,7 @@ export default function HomeColorPresets() {
           <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inDown}>
               <m.div animate={{ y: [-5, 10, -5] }} transition={{ duration: 8, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`/images/block2-${themeColorPresets}.png`}
-                />
+                <Image disabledEffect alt="sidebar" src={`/images/block2-${themeColorPresets}.png`} />
               </m.div>
             </m.div>
           </Box>
@@ -178,11 +154,7 @@ export default function HomeColorPresets() {
           <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inDown}>
               <m.div animate={{ y: [-25, 5, -25] }} transition={{ duration: 10, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`/images/sidebar-${themeColorPresets}.png`}
-                />
+                <Image disabledEffect alt="sidebar" src={`/images/sidebar-${themeColorPresets}.png`} />
               </m.div>
             </m.div>
           </Box>

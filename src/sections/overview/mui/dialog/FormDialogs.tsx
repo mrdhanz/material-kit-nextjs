@@ -1,14 +1,6 @@
 import { useState } from 'react';
 // @mui
-import {
-  Button,
-  Dialog,
-  TextField,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  DialogContentText
-} from '@mui/material';
+import { Button, Dialog, TextField, DialogTitle, DialogContent, DialogActions, DialogContentText } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -33,17 +25,9 @@ export default function FormDialogs() {
         <DialogTitle>Subscribe</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
+            To subscribe to this website, please enter your email address here. We will send updates occasionally.
           </DialogContentText>
-          <TextField
-            autoFocus
-            fullWidth
-            type="email"
-            margin="dense"
-            variant="outlined"
-            label="Email Address"
-          />
+          <TextField autoFocus fullWidth type="email" margin="dense" variant="outlined" label="Email Address" />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="inherit">

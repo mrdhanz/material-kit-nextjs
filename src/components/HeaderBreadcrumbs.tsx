@@ -14,7 +14,14 @@ export interface HeaderBreadcrumbsProps extends BreadcrumbsProps {
   sx?: SxProps;
 }
 
-export default function HeaderBreadcrumbs({ links, action, heading, moreLink = '' || [], sx, ...other }: HeaderBreadcrumbsProps) {
+export default function HeaderBreadcrumbs({
+  links,
+  action,
+  heading,
+  moreLink = '' || [],
+  sx,
+  ...other
+}: HeaderBreadcrumbsProps) {
   return (
     <Box sx={{ mb: 5, ...sx }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>

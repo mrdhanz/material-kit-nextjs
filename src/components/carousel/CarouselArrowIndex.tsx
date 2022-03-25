@@ -35,9 +35,16 @@ export interface CarouselArrowIndexProps extends BoxProps {
   onNext: React.MouseEventHandler<HTMLButtonElement>;
   onPrevious: React.MouseEventHandler<HTMLButtonElement>;
   total?: number;
-};
+}
 
-export default function CarouselArrowIndex({ index, total, onNext, onPrevious, customIcon, ...other }: CarouselArrowIndexProps) {
+export default function CarouselArrowIndex({
+  index,
+  total,
+  onNext,
+  onPrevious,
+  customIcon,
+  ...other
+}: CarouselArrowIndexProps) {
   const theme = useTheme();
 
   const isRTL = theme.direction === 'rtl';

@@ -6,7 +6,7 @@ import React from 'react';
 export interface RoleBasedGuardProps {
   accessibleRoles: string[]; // ['admin', 'user']
   children?: React.ReactNode;
-};
+}
 
 const useCurrentRole = () => {
   // Logic here to get current user role

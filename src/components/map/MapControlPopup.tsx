@@ -56,18 +56,21 @@ export interface MapControlPopupProps {
   onClose?: Function;
   sx?: SxProps;
   [key: string]: any;
-};
+}
 
 export default function MapControlPopup({ onClose, sx, children, ...other }: MapControlPopupProps) {
   return (
     <PopupStyle
-      longitude={0} latitude={0} tipSize={8}
+      longitude={0}
+      latitude={0}
+      tipSize={8}
       anchor="bottom"
       onClose={onClose}
       closeButton={true}
       closeOnClick={false}
       sx={sx}
-      {...other}>
+      {...other}
+    >
       {children}
     </PopupStyle>
   );

@@ -1,7 +1,18 @@
 import { format, isSameDay, isSameMonth } from 'date-fns';
 import React, { useState } from 'react';
 // @mui
-import { Box, Paper, Stack, Tooltip, Checkbox, IconButton, OutlinedInput, ClickAwayListener, SxProps, TextField } from '@mui/material';
+import {
+  Box,
+  Paper,
+  Stack,
+  Tooltip,
+  Checkbox,
+  IconButton,
+  OutlinedInput,
+  ClickAwayListener,
+  SxProps,
+  TextField,
+} from '@mui/material';
 import { MobileDateRangePicker } from '@mui/lab';
 // utils
 import uuidv4 from '../../../utils/uuidv4';
@@ -22,7 +33,7 @@ const defaultTask = {
 export interface KanbanTaskAddProps {
   onAddTask?: (task: any) => void;
   onCloseAddTask?: () => void;
-};
+}
 
 export default function KanbanTaskAdd({ onAddTask, onCloseAddTask }: KanbanTaskAddProps) {
   const [name, setName] = useState('');
@@ -123,7 +134,7 @@ export default function KanbanTaskAdd({ onAddTask, onCloseAddTask }: KanbanTaskA
                     <Box sx={{ mx: 2 }}> to </Box>
                     <TextField {...endProps} />
                   </React.Fragment>
-                 )}
+                )}
               />
             </Stack>
           </Stack>
@@ -148,7 +159,7 @@ export function useDatePicker({ date }: { date: RangeInput<Date> }) {
 
   const isSameMonths = isSameMonth(new Date(startTime), new Date(endTime));
 
-  const handleChangeDueDate = (newValue:RangeInput<Date>) => {
+  const handleChangeDueDate = (newValue: RangeInput<Date>) => {
     setDueDate(newValue);
   };
 
@@ -182,7 +193,7 @@ export interface DisplayTimeProps {
   startTime: string | number | Date;
   endTime: string | number | Date;
   sx?: SxProps;
-};
+}
 
 export function DisplayTime({ startTime, endTime, isSameDays, isSameMonths, onOpenPicker, sx }: DisplayTimeProps) {
   const style = {

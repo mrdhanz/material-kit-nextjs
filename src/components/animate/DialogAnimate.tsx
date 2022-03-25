@@ -14,7 +14,7 @@ export interface DialogAnimateProps extends DialogProps {
   sx?: SxProps;
   variants?: Variants;
   [key: string]: any;
-};
+}
 
 export default function DialogAnimate({ open = false, variants, onClose, children, sx, ...other }: DialogAnimateProps) {
   return (

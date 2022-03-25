@@ -10,7 +10,7 @@ import componentsOverride from '../theme/overrides';
 
 export interface ThemeColorPresetsProps {
   children: React.ReactNode;
-};
+}
 
 export default function ThemeColorPresets({ children }: ThemeColorPresetsProps) {
   const defaultTheme = useTheme();

@@ -8,7 +8,7 @@ import { IconButtonAnimate } from '../../../components/animate';
 export interface CollapseButtonProps {
   collapseClick?: boolean;
   onToggleCollapse?: () => void;
-};
+}
 
 export default function CollapseButton({ onToggleCollapse, collapseClick }: CollapseButtonProps) {
   return (

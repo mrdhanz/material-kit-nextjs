@@ -55,16 +55,8 @@ export default function ComponentHero() {
           </m.div>
 
           <m.div variants={varFade().inUp}>
-            <Link
-              href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0"
-              target="_blank"
-            >
-              <Stack
-                direction="row"
-                spacing={1}
-                alignItems="center"
-                sx={{ display: 'inline-flex' }}
-              >
+            <Link href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0" target="_blank">
+              <Stack direction="row" spacing={1} alignItems="center" sx={{ display: 'inline-flex' }}>
                 <Typography variant="button"> Fast preview</Typography>
                 <Iconify icon={'ic:round-arrow-right-alt'} width={20} height={20} />
               </Stack>

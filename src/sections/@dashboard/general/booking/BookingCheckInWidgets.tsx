@@ -57,26 +57,11 @@ export default function BookingCheckInWidgets() {
       <Stack
         direction={{ xs: 'column', sm: 'row' }}
         divider={
-          <Divider
-            orientation={isDesktop ? 'vertical' : 'horizontal'}
-            flexItem
-            sx={{ borderStyle: 'dashed' }}
-          />
+          <Divider orientation={isDesktop ? 'vertical' : 'horizontal'} flexItem sx={{ borderStyle: 'dashed' }} />
         }
       >
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={3}
-          sx={{ width: 1, py: 5 }}
-        >
-          <ReactApexChart
-            type="radialBar"
-            series={CHART_DATA_CHECK_IN}
-            options={chartOptionsCheckIn}
-            {...CHART_SIZE}
-          />
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={3} sx={{ width: 1, py: 5 }}>
+          <ReactApexChart type="radialBar" series={CHART_DATA_CHECK_IN} options={chartOptionsCheckIn} {...CHART_SIZE} />
           <div>
             <Typography variant="h4" sx={{ mb: 0.5 }}>
               {fNumber(TOTAL_CHECK_IN)}
@@ -87,13 +72,7 @@ export default function BookingCheckInWidgets() {
           </div>
         </Stack>
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={3}
-          sx={{ width: 1, py: 5 }}
-        >
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={3} sx={{ width: 1, py: 5 }}>
           <ReactApexChart
             type="radialBar"
             series={CHART_DATA_CHECK_OUT}

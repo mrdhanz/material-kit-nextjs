@@ -10,7 +10,7 @@ export interface PageProps extends BoxProps {
   title?: string;
   meta?: React.ReactNode;
   [key: string]: any;
-};
+}
 
 const Page = forwardRef<HTMLDivElement, PageProps>(({ children, title = '', meta, ...other }, ref) => (
   <>

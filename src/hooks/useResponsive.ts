@@ -8,7 +8,8 @@ export default function useResponsive(
   query: 'up' | 'down' | 'between' | 'only',
   key: Breakpoint,
   start?: number | Breakpoint,
-  end?: number | Breakpoint) {
+  end?: number | Breakpoint
+) {
   const theme = useTheme();
 
   const mediaUp = useMediaQuery(theme.breakpoints.up(key));

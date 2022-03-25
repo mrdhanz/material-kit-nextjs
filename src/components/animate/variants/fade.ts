@@ -6,7 +6,7 @@ export interface FadeProps extends TransitionVariantProps {
   distance?: number;
 }
 
-export const varFade = (props?:FadeProps) => {
+export const varFade = (props?: FadeProps) => {
   const distance = props?.distance || 120;
   const durationIn = props?.durationIn;
   const durationOut = props?.durationOut;

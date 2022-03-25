@@ -24,7 +24,7 @@ const IconStyle = styled('svg')(({ theme }) => ({
 export interface MapControlMarkerProps extends MarkerProps {
   onClick?: React.MouseEventHandler<SVGSVGElement>;
   [key: string]: any;
-};
+}
 
 export default function MapControlMarker({ onClick, ...other }: MapControlMarkerProps) {
   return (

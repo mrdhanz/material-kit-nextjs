@@ -1,6 +1,6 @@
 // @mui
 import { useTheme, styled, Palette } from '@mui/material/styles';
-import { Stack, Box, Paper, Container, Typography, SxProps} from '@mui/material';
+import { Stack, Box, Paper, Container, Typography, SxProps } from '@mui/material';
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
 // layouts
@@ -30,7 +30,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 FoundationShadows.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout variant="main">{page}</Layout>
+  return <Layout variant="main">{page}</Layout>;
 };
 
 // ----------------------------------------------------------------------
@@ -115,7 +115,7 @@ export default function FoundationShadows() {
 export interface ShadowCardProps {
   sx?: SxProps;
   title?: string;
-};
+}
 
 function ShadowCard({ sx, title }: ShadowCardProps) {
   return (

@@ -17,7 +17,7 @@ import { NavSectionItem } from 'src/components/nav-section/types';
 
 // ----------------------------------------------------------------------
 
-const ListItemStyle = styled(ListItemButton)<{[key: string]: any}>(({ theme }) => ({
+const ListItemStyle = styled(ListItemButton)<{ [key: string]: any }>(({ theme }) => ({
   ...theme.typography.body2,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: 'capitalize',
@@ -30,7 +30,7 @@ export interface MenuMobileProps {
   isOffset: boolean;
   isHome: boolean;
   navConfig: IMenuMobileItem[];
-};
+}
 
 export default function MenuMobile({ isOffset, isHome, navConfig }: MenuMobileProps) {
   const { pathname } = useRouter();

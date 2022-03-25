@@ -22,7 +22,7 @@ const HeaderStyle = styled('header')(({ theme }) => ({
 
 export interface LogoOnlyLayoutProps {
   children?: React.ReactNode;
-};
+}
 
 export default function LogoOnlyLayout({ children }: LogoOnlyLayoutProps) {
   return (

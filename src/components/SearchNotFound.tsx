@@ -1,11 +1,11 @@
-import { Paper, PaperProps ,Typography } from '@mui/material';
+import { Paper, PaperProps, Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export interface SearchNotFoundProps extends PaperProps { 
+export interface SearchNotFoundProps extends PaperProps {
   searchQuery?: string;
   [key: string]: any;
-};
+}
 
 export default function SearchNotFound({ searchQuery = '', ...other }: SearchNotFoundProps) {
   return searchQuery ? (

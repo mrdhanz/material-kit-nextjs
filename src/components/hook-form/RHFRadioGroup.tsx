@@ -10,7 +10,7 @@ export interface RHFRadioGroupProps extends RadioGroupProps {
   options: string[];
   getOptionLabel: string[];
   [key: string]: any;
-};
+}
 
 export default function RHFRadioGroup({ name, options, getOptionLabel, ...other }: RHFRadioGroupProps) {
   const { control } = useFormContext();

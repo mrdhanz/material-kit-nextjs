@@ -63,7 +63,6 @@ export default function MenuDesktop({ isOffset, isHome, navConfig = [] }: MenuDe
     }
   }, [pathname]);
 
-
   return (
     <Stack direction="row">
       {navConfig.map((link) => (
@@ -85,7 +84,7 @@ export default function MenuDesktop({ isOffset, isHome, navConfig = [] }: MenuDe
 
 export interface IconBulletProps {
   type?: 'item' | 'subheader';
-};
+}
 
 function IconBullet({ type = 'item' }: IconBulletProps) {
   return (
@@ -106,7 +105,6 @@ function IconBullet({ type = 'item' }: IconBulletProps) {
 }
 
 // ----------------------------------------------------------------------
-
 
 export interface SubMenuItemProps {
   title: string;
@@ -129,8 +127,7 @@ export interface MenuDesktopItemProps {
   isOffset?: boolean;
   isOpen?: boolean;
   onClose?: (event: {}, reason: 'backdropClick' | 'escapeKeyDown') => void;
-  onOpen?: React.MouseEventHandler<HTMLAnchorElement> &
-    React.MouseEventHandler<HTMLSpanElement>;
+  onOpen?: React.MouseEventHandler<HTMLAnchorElement> & React.MouseEventHandler<HTMLSpanElement>;
   item: IMenuDesktopItem;
   params?: string;
 }

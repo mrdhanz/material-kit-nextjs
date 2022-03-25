@@ -78,12 +78,7 @@ export default function DemoMegaMenu() {
               <MegaMenuDesktopVertical navConfig={MenuConfig} />
             </Card>
 
-            <Image
-              alt="any photo"
-              src="/images/feed_8.jpg"
-              ratio="21/9"
-              sx={{ borderRadius: 1 }}
-            />
+            <Image alt="any photo" src="/images/feed_8.jpg" ratio="21/9" sx={{ borderRadius: 1 }} />
           </Stack>
         </Container>
       </RootStyle>

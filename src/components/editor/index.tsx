@@ -62,7 +62,7 @@ export interface EditorProps extends ReactQuillProps {
   helperText?: React.ReactNode;
   simple?: boolean;
   sx?: SxProps;
-};
+}
 
 export default function Editor({
   id = 'minimal-quill',

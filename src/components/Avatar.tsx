@@ -12,7 +12,7 @@ export interface AvatarProps extends MUIAvatarProps {
 }
 
 // eslint-disable-next-line react/prop-types
-const Avatar = forwardRef<HTMLDivElement, AvatarProps>(({ color , children, sx, ...other }, ref) => {
+const Avatar = forwardRef<HTMLDivElement, AvatarProps>(({ color, children, sx, ...other }, ref) => {
   const theme = useTheme();
 
   if (color !== 'primary' && color !== 'secondary') {
@@ -40,5 +40,3 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(({ color , children, sx, 
 });
 
 export default Avatar;
-
-

@@ -12,7 +12,7 @@ import { UploadMultiFileProps } from '../upload/UploadMultiFile';
 export interface RHFUploadAvatarProps {
   name: string;
   [key: string]: any;
-};
+}
 
 export function RHFUploadAvatar({ name, ...other }: RHFUploadAvatarProps) {
   const { control } = useFormContext();
@@ -44,7 +44,7 @@ export function RHFUploadAvatar({ name, ...other }: RHFUploadAvatarProps) {
 export interface RHFUploadSingleFileProps extends UploadSingleFileProps {
   name: string;
   [key: string]: any;
-};
+}
 
 export function RHFUploadSingleFile({ name, ...other }: RHFUploadSingleFileProps) {
   const { control } = useFormContext();
@@ -80,7 +80,7 @@ export function RHFUploadSingleFile({ name, ...other }: RHFUploadSingleFileProps
 
 export interface RHFUploadMultiFileProps extends UploadMultiFileProps {
   name: string;
-};
+}
 
 export function RHFUploadMultiFile({ name, ...other }: RHFUploadMultiFileProps) {
   const { control } = useFormContext();

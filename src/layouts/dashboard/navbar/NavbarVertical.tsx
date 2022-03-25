@@ -37,7 +37,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 export interface NavbarVerticalProps {
   isOpenSidebar?: boolean;
   onCloseSidebar?: () => void;
-};
+}
 
 export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }: NavbarVerticalProps) {
   const theme = useTheme();

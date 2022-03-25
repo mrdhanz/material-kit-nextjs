@@ -6,7 +6,7 @@ import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
 const FONT_PRIMARY = 'Roboto, sans-serif'; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
-const typography: TypographyOptions  = {
+const typography: TypographyOptions = {
   fontFamily: FONT_PRIMARY,
   fontWeightRegular: 400,
   fontWeightMedium: 600,

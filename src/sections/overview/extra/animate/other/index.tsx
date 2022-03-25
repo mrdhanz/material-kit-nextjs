@@ -43,10 +43,7 @@ export default function Other() {
             >
               <CardHeader title="Path" />
               <Box sx={{ p: 5, minHeight: 180, '& > *': { mx: 1 } }}>
-                <IconButton
-                  onClick={() => setCount(count + 1)}
-                  sx={{ position: 'absolute', right: 16, top: 16 }}
-                >
+                <IconButton onClick={() => setCount(count + 1)} sx={{ position: 'absolute', right: 16, top: 16 }}>
                   <Iconify icon={'eva:refresh-fill'} width={20} height={20} />
                 </IconButton>
                 <Logo key={count} />

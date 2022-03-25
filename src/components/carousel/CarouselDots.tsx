@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 
 const RootStyle = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'rounded',
-})<{[key: string]: any}>(({ rounded }) => ({
+})<{ [key: string]: any }>(({ rounded }) => ({
   display: 'flex',
   listStyle: 'none',
   alignItems: 'center',
@@ -66,18 +66,19 @@ export default function CarouselDots(props?: CarouselDotsProps) {
       </>
     ),
     customPaging: (index: number) => {
-      if(props?.setIndex){
+      if (props?.setIndex) {
         props.setIndex(index);
       }
       return (
-      <DotWrapStyle>
-        <DotStyle
-          className="dotActive"
-          sx={{
-            bgcolor: color || 'primary.main',
-          }}
-        />
-      </DotWrapStyle>
-    )},
+        <DotWrapStyle>
+          <DotStyle
+            className="dotActive"
+            sx={{
+              bgcolor: color || 'primary.main',
+            }}
+          />
+        </DotWrapStyle>
+      );
+    },
   };
 }

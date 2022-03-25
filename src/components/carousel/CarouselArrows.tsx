@@ -13,7 +13,7 @@ const BUTTON_SIZE = 40;
 
 const ArrowStyle = styled(IconButtonAnimate, {
   shouldForwardProp: (prop) => prop !== 'filled',
-})<{[x: string]: any}>(({ filled, theme }) => ({
+})<{ [x: string]: any }>(({ filled, theme }) => ({
   width: BUTTON_SIZE,
   height: BUTTON_SIZE,
   cursor: 'pointer',
@@ -39,9 +39,9 @@ const ArrowStyle = styled(IconButtonAnimate, {
 
 // ----------------------------------------------------------------------
 
-export interface CarouselArrowsProps extends CarouselArrowIndexProps  {
+export interface CarouselArrowsProps extends CarouselArrowIndexProps {
   filled?: boolean;
-};
+}
 
 export default function CarouselArrows({
   filled = false,

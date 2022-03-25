@@ -22,16 +22,16 @@ const IconStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export interface ColorPreviewProps extends BoxProps {
-  colors: string[]
+  colors: string[];
   limit?: number;
-};
+}
 
 export default function ColorPreview({ colors, limit = 3, sx, ...other }: ColorPreviewProps) {
   const showColor = colors.slice(0, limit);
   const moreColor = colors.length - limit;
 
   return (
-    <RootStyle component="span"  {...other} sx={sx}>
+    <RootStyle component="span" {...other} sx={sx}>
       {showColor.map((color, index) => (
         <IconStyle key={color + index} sx={{ bgcolor: color }} />
       ))}

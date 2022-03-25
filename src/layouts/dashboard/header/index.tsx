@@ -26,8 +26,7 @@ interface DashboardHeaderRootStyleProps extends DashboardHeaderProps {
 }
 const RootStyle = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== 'isCollapse' && prop !== 'isOffset' && prop !== 'verticalLayout',
-})<DashboardHeaderRootStyleProps>(
-  ({ isCollapse, isOffset, verticalLayout, theme }) => ({
+})<DashboardHeaderRootStyleProps>(({ isCollapse, isOffset, verticalLayout, theme }) => ({
   ...cssStyles(theme).bgBlur(),
   boxShadow: 'none',
   height: HEADER.MOBILE_HEIGHT,
@@ -58,9 +57,13 @@ export interface DashboardHeaderProps {
   isCollapse?: boolean;
   onOpenSidebar?: () => void;
   verticalLayout?: boolean;
-};
+}
 
-export default function DashboardHeader({ onOpenSidebar, isCollapse = false, verticalLayout = false }: DashboardHeaderProps) {
+export default function DashboardHeader({
+  onOpenSidebar,
+  isCollapse = false,
+  verticalLayout = false,
+}: DashboardHeaderProps) {
   const isOffset = useOffSetTop(HEADER.DASHBOARD_DESKTOP_HEIGHT) && !verticalLayout;
 
   const isDesktop = useResponsive('up', 'lg');

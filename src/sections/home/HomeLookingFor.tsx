@@ -22,12 +22,7 @@ export default function HomeLookingFor() {
   return (
     <RootStyle>
       <Container component={MotionViewport}>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="space-between"
-          spacing={{ xs: 8, md: 3 }}
-        >
+        <Grid container alignItems="center" justifyContent="space-between" spacing={{ xs: 8, md: 3 }}>
           <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             <m.div variants={varFade().inDown}>
               <Typography variant="overline" component="div" sx={{ color: 'text.disabled' }}>

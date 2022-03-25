@@ -28,7 +28,7 @@ const CollapseDrawerContext = createContext(initialState);
 
 export interface CollapseDrawerProviderProps {
   children: React.ReactNode;
-};
+}
 
 function CollapseDrawerProvider({ children }: CollapseDrawerProviderProps) {
   const theme = useTheme();

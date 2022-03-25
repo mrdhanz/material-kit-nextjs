@@ -38,10 +38,10 @@ const DotStyle = styled('span')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export interface ToggleButtonProps {
-  notDefault?:boolean;
+  notDefault?: boolean;
   onToggle?: () => void;
-  open?:boolean;
-};
+  open?: boolean;
+}
 
 export default function ToggleButton({ notDefault, open, onToggle }: ToggleButtonProps) {
   return (

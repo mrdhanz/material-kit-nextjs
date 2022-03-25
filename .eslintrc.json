@@ -17,10 +17,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@next/eslint-plugin-next"
-  ],
+  "plugins": ["react", "@next/eslint-plugin-next"],
   "rules": {
     "react-hooks/rules-of-hooks": 0,
     "react-hooks/exhaustive-deps": 0,

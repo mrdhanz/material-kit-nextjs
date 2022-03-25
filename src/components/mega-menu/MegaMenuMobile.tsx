@@ -30,7 +30,7 @@ import { MegaMenuItemParent } from './MegaMenuDesktopHorizon';
 
 export interface MegaMenuMobileProps {
   navConfig: MegaMenuItemParent[];
-};
+}
 
 export default function MegaMenuMobile({ navConfig }: MegaMenuMobileProps) {
   const { pathname } = useRouter();
@@ -87,7 +87,7 @@ export interface ParentItemProps extends ListItemButtonProps {
   icon?: React.ReactNode;
   title?: string;
   [key: string]: any;
-};
+}
 
 function ParentItem({ icon, title, hasSub, ...other }: ParentItemProps) {
   return (
@@ -104,7 +104,7 @@ function ParentItem({ icon, title, hasSub, ...other }: ParentItemProps) {
 export interface SubMenuProps {
   parent: MegaMenuItemParent;
   pathname?: string;
-};
+}
 
 function SubMenu({ parent, pathname }: SubMenuProps) {
   const [open, setOpen] = useState(false);

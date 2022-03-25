@@ -46,7 +46,7 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 export interface QontoStepIconProps {
   active?: boolean;
   completed?: boolean;
-};
+}
 
 function QontoStepIcon({ active, completed }: QontoStepIconProps) {
   return (

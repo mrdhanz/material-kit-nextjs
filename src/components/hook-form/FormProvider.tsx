@@ -8,7 +8,7 @@ export interface FormProviderProps {
   children: React.ReactNode;
   methods: FPProps;
   onSubmit: React.FormEventHandler;
-};
+}
 
 export default function FormProvider({ children, onSubmit, methods }: FormProviderProps) {
   return (

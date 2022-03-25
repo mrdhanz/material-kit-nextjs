@@ -56,11 +56,7 @@ export default function HomeDarkMode() {
           <Grid item xs={12} md={4}>
             <ContentStyle>
               <m.div variants={varFade().inUp}>
-                <Typography
-                  component="div"
-                  variant="overline"
-                  sx={{ mb: 2, color: 'text.disabled' }}
-                >
+                <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
                   Easy switch between styles.
                 </Typography>
               </m.div>
@@ -81,21 +77,11 @@ export default function HomeDarkMode() {
 
           <Grid item xs={12} md={7} sx={{ position: 'relative' }}>
             <m.div variants={varFade().inUp}>
-              <Image
-                alt="light mode"
-                src="https://minimal-assets-api.vercel.app/assets/images/home/lightmode.png"
-              />
+              <Image alt="light mode" src="https://minimal-assets-api.vercel.app/assets/images/home/lightmode.png" />
             </m.div>
 
-            <Box
-              component={m.div}
-              variants={varFade().inDown}
-              sx={{ top: 0, left: 0, position: 'absolute' }}
-            >
-              <Image
-                alt="dark mode"
-                src="https://minimal-assets-api.vercel.app/assets/images/home/darkmode.png"
-              />
+            <Box component={m.div} variants={varFade().inDown} sx={{ top: 0, left: 0, position: 'absolute' }}>
+              <Image alt="dark mode" src="https://minimal-assets-api.vercel.app/assets/images/home/darkmode.png" />
             </Box>
           </Grid>
         </Grid>

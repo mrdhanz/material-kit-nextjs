@@ -3,24 +3,24 @@ import { alpha, styled, Palette } from '@mui/material/styles';
 import React from 'react';
 // ----------------------------------------------------------------------
 
-type LabelColor = keyof Palette;//"default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
+type LabelColor = keyof Palette; //"default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
 
 export interface LabelProps {
   children?: React.ReactNode;
   color?: LabelColor;
   variant?: 'filled' | 'outlined' | 'ghost';
   [key: string]: any;
-};
+}
 
 const RootStyle = styled('span')<LabelProps>(({ theme, color, variant }) => {
   const isLight = theme.palette.mode === 'light';
 
-  const styleFilled = (color: "primary" | "secondary" | "info" | "success" | "warning" | "error") => ({
+  const styleFilled = (color: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error') => ({
     color: theme.palette[color].contrastText,
     backgroundColor: theme.palette[color].main,
   });
 
-  const styleOutlined = (color: "primary" | "secondary" | "info" | "success" | "warning" | "error") => ({
+  const styleOutlined = (color: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error') => ({
     color: theme.palette[color].main,
     backgroundColor: 'transparent',
     border: `1px solid ${theme.palette[color].main}`,
@@ -50,23 +50,28 @@ const RootStyle = styled('span')<LabelProps>(({ theme, color, variant }) => {
     backgroundColor: theme.palette.grey[300],
     fontWeight: theme.typography.fontWeightBold,
 
-    ...(color !== undefined && color == 'primary' || color == 'secondary' || color == 'info' || color == 'success' || color == 'warning' || color == 'error'
+    ...((color !== undefined && color == 'primary') ||
+    color == 'secondary' ||
+    color == 'info' ||
+    color == 'success' ||
+    color == 'warning' ||
+    color == 'error'
       ? {
-        ...(variant === 'filled' && { ...styleFilled(color) }),
-        ...(variant === 'outlined' && { ...styleOutlined(color) }),
-        ...(variant === 'ghost' && { ...styleGhost(color) }),
-      }
+          ...(variant === 'filled' && { ...styleFilled(color) }),
+          ...(variant === 'outlined' && { ...styleOutlined(color) }),
+          ...(variant === 'ghost' && { ...styleGhost(color) }),
+        }
       : {
-        ...(variant === 'outlined' && {
-          backgroundColor: 'transparent',
-          color: theme.palette.text.primary,
-          border: `1px solid ${theme.palette.grey[500_32]}`,
+          ...(variant === 'outlined' && {
+            backgroundColor: 'transparent',
+            color: theme.palette.text.primary,
+            border: `1px solid ${theme.palette.grey[500_32]}`,
+          }),
+          ...(variant === 'ghost' && {
+            color: isLight ? theme.palette.text.secondary : theme.palette.common.white,
+            backgroundColor: theme.palette.grey[500_16],
+          }),
         }),
-        ...(variant === 'ghost' && {
-          color: isLight ? theme.palette.text.secondary : theme.palette.common.white,
-          backgroundColor: theme.palette.grey[500_16],
-        }),
-      }),
   };
 });
 

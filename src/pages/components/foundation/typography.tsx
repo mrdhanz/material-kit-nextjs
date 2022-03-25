@@ -18,7 +18,7 @@ export interface DemoTypographyProps {
   variant: TypographyVariant;
 }
 
-const TYPOGRAPHYS:DemoTypographyProps[]  = [
+const TYPOGRAPHYS: DemoTypographyProps[] = [
   { label: 'h1. Heading', variant: 'h1' },
   { label: 'h2. Heading', variant: 'h2' },
   { label: 'h3. Heading', variant: 'h3' },

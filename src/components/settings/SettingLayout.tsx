@@ -61,7 +61,7 @@ const style = {
 
 export interface VerticalBoxProps {
   isSelected?: boolean;
-};
+}
 
 function VerticalBox({ isSelected }: VerticalBoxProps) {
   return (
@@ -94,7 +94,7 @@ function VerticalBox({ isSelected }: VerticalBoxProps) {
 
 export interface HorizontalBoxProps {
   isSelected?: boolean;
-};
+}
 
 function HorizontalBox({ isSelected }: HorizontalBoxProps) {
   return (

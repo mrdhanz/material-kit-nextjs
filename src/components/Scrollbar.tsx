@@ -39,7 +39,7 @@ export interface ScrollbarProps extends Props {
   children: React.ReactNode;
   sx?: SxProps;
   [key: string]: any;
-};
+}
 
 export default function Scrollbar({ children, sx, ...other }: ScrollbarProps) {
   const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;

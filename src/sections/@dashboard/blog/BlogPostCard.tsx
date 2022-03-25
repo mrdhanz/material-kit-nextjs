@@ -34,7 +34,7 @@ const OverlayStyle = styled('div')(({ theme }) => ({
 export interface BlogPostCardProps {
   post: PostContentProps;
   index?: number;
-};
+}
 
 export default function BlogPostCard({ post, index }: BlogPostCardProps) {
   const isDesktop = useResponsive('up', 'md');
@@ -113,7 +113,7 @@ export interface PostContentProps {
   title?: string;
   view?: number;
   cover?: string;
-};
+}
 
 export function PostContent({ title, view, comment, share, createdAt, index }: PostContentProps) {
   const isDesktop = useResponsive('up', 'md');

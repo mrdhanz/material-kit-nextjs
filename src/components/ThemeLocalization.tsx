@@ -6,9 +6,9 @@ import { ReactNode } from 'react';
 
 // ----------------------------------------------------------------------
 
-export interface ThemeLocalizationProps{
+export interface ThemeLocalizationProps {
   children: ReactNode;
-};
+}
 
 export default function ThemeLocalization({ children }: ThemeLocalizationProps) {
   const defaultTheme = useTheme();

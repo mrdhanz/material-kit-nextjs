@@ -10,7 +10,6 @@ import { INavMenuItem } from '../types';
 
 // ----------------------------------------------------------------------
 
-
 export interface NavListRootProps {
   isCollapse?: boolean;
   list: INavMenuItem;

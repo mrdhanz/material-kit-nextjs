@@ -17,7 +17,7 @@ import NavbarHorizontal from './navbar/NavbarHorizontal';
 
 const MainStyle = styled('main', {
   shouldForwardProp: (prop) => prop !== 'collapseClick',
-})<{ collapseClick?: boolean;[key: string]: any }>(({ collapseClick, theme }) => ({
+})<{ collapseClick?: boolean; [key: string]: any }>(({ collapseClick, theme }) => ({
   flexGrow: 1,
   paddingTop: HEADER.MOBILE_HEIGHT + 24,
   paddingBottom: HEADER.MOBILE_HEIGHT + 24,
@@ -40,7 +40,7 @@ const MainStyle = styled('main', {
 
 export interface DashboardLayoutProps {
   children: React.ReactElement;
-};
+}
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const { collapseClick, isCollapse } = useCollapseDrawer();

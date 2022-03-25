@@ -64,7 +64,7 @@ export interface UploadAvatarProps extends DropzoneOptions {
   helperText?: ReactNode;
   sx?: SxProps;
   [key: string]: any;
-};
+}
 
 export default function UploadAvatar({ error, file, helperText, sx, ...other }: UploadAvatarProps) {
   const { getRootProps, getInputProps, isDragActive, isDragReject, fileRejections } = useDropzone({

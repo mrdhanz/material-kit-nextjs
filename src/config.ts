@@ -77,7 +77,7 @@ export interface ThemeSettings {
   themeStretch: boolean;
 }
 
-export const defaultSettings : ThemeSettings = {
+export const defaultSettings: ThemeSettings = {
   themeMode: 'light',
   themeDirection: 'ltr',
   themeColorPresets: 'default',

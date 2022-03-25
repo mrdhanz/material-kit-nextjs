@@ -32,15 +32,15 @@ export const formats = [
   'underline',
   'video',
 ];
-type Props = MUIStyledCommonProps<Theme> & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = MUIStyledCommonProps<Theme> &
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 export interface EditorToolbarProps extends Props {
   id: string;
   isSimple?: boolean;
   [key: string]: any;
-};
+}
 
 export default function EditorToolbar({ id, isSimple, ...other }: EditorToolbarProps) {
-
   return (
     <EditorToolbarStyle {...other}>
       <div id={id}>

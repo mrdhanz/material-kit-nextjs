@@ -3,8 +3,13 @@ import React from 'react';
 // next
 import NextLink from 'next/link';
 // @mui
-import { Box, Link, Typography, Breadcrumbs as MUIBreadcrumbs, 
-  BreadcrumbsProps as MUIBreadCrumbsProps } from '@mui/material';
+import {
+  Box,
+  Link,
+  Typography,
+  Breadcrumbs as MUIBreadcrumbs,
+  BreadcrumbsProps as MUIBreadCrumbsProps,
+} from '@mui/material';
 
 // ----------------------------------------------------------------------
 export interface LinkItemProps {

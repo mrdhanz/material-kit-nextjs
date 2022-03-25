@@ -9,7 +9,7 @@ import { MegaMenuProduct } from './types';
 export interface MenuHotProductsProps extends BoxProps {
   tags: MegaMenuProduct[];
   [key: string]: any;
-};
+}
 
 export default function MenuHotProducts({ tags = [], ...other }: MenuHotProductsProps) {
   return (

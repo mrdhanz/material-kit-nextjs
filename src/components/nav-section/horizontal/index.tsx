@@ -14,14 +14,18 @@ export interface NavSectionHorizontalProps {
 function NavSectionHorizontal({ navConfig }: NavSectionHorizontalProps) {
   return (
     <Stack direction="row" justifyContent="center" sx={{ bgcolor: 'background.neutral', borderRadius: 1, px: 0.5 }}>
-      <Stack direction="row" sx={{
-        msOverflowStyle: 'none',
-        scrollbarWidth: 'none',
-        overflowY: 'scroll',
-        '&::-webkit-scrollbar': {
-          display: 'none',
-        }, py: 1
-      }}>
+      <Stack
+        direction="row"
+        sx={{
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+          overflowY: 'scroll',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+          py: 1,
+        }}
+      >
         {navConfig.map((group) => (
           <Stack key={group.subheader} direction="row" flexShrink={0}>
             {group.items.map((list) => (
@@ -30,7 +34,7 @@ function NavSectionHorizontal({ navConfig }: NavSectionHorizontalProps) {
           </Stack>
         ))}
       </Stack>
-    </Stack >
+    </Stack>
   );
 }
 

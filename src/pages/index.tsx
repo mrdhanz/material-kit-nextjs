@@ -51,7 +51,7 @@ export default function HomePage() {
           <HomeHugePackElements />
 
           <HomeDarkMode />
-          
+
           <HomeColorPresets />
 
           <HomeCleanInterfaces />

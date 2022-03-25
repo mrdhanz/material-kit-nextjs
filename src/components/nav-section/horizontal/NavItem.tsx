@@ -22,29 +22,37 @@ export interface NavItemRootProps {
   [key: string]: any;
 }
 
-export const NavItemRoot = forwardRef<HTMLButtonElement, NavItemRootProps>(({ item, active, open, onMouseEnter, onMouseLeave }, ref) => {
-  const { title, path, icon, children } = item;
+export const NavItemRoot = forwardRef<HTMLButtonElement, NavItemRootProps>(
+  ({ item, active, open, onMouseEnter, onMouseLeave }, ref) => {
+    const { title, path, icon, children } = item;
 
-  if (children) {
-    return (
-      <ListItemStyle ref={ref} open={open} activeRoot={active} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    if (children) {
+      return (
+        <ListItemStyle
+          ref={ref}
+          open={open}
+          activeRoot={active}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          <NavItemContent icon={icon} title={title} children={children} />
+        </ListItemStyle>
+      );
+    }
+
+    return isExternalLink(path) ? (
+      <ListItemStyle component={Link} href={path} target="_blank" rel="noopener">
         <NavItemContent icon={icon} title={title} children={children} />
       </ListItemStyle>
+    ) : (
+      <NextLink href={path}>
+        <ListItemStyle activeRoot={active}>
+          <NavItemContent icon={icon} title={title} children={children} />
+        </ListItemStyle>
+      </NextLink>
     );
   }
-
-  return isExternalLink(path) ? (
-    <ListItemStyle component={Link} href={path} target="_blank" rel="noopener">
-      <NavItemContent icon={icon} title={title} children={children} />
-    </ListItemStyle>
-  ) : (
-    <NextLink href={path}>
-      <ListItemStyle activeRoot={active}>
-        <NavItemContent icon={icon} title={title} children={children} />
-      </ListItemStyle>
-    </NextLink>
-  );
-});
+);
 // ----------------------------------------------------------------------
 
 export interface NavItemSubProps {
@@ -56,39 +64,40 @@ export interface NavItemSubProps {
   [key: string]: any;
 }
 
-export const NavItemSub = forwardRef<HTMLButtonElement, NavItemSubProps>(({ item, active, open, onMouseEnter, onMouseLeave }, ref) => {
-  const { title, path, icon, children } = item;
+export const NavItemSub = forwardRef<HTMLButtonElement, NavItemSubProps>(
+  ({ item, active, open, onMouseEnter, onMouseLeave }, ref) => {
+    const { title, path, icon, children } = item;
 
-  if (children) {
-    return (
-      <ListItemStyle
-        ref={ref}
-        subItem
-        disableRipple
-        open={open}
-        activeSub={active}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
+    if (children) {
+      return (
+        <ListItemStyle
+          ref={ref}
+          subItem
+          disableRipple
+          open={open}
+          activeSub={active}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          <NavItemContent icon={icon} title={title} children={children} subItem />
+        </ListItemStyle>
+      );
+    }
+
+    return isExternalLink(path) ? (
+      <ListItemStyle subItem href={path} disableRipple rel="noopener" target="_blank" component={Link}>
         <NavItemContent icon={icon} title={title} children={children} subItem />
       </ListItemStyle>
+    ) : (
+      <NextLink href={path}>
+        <ListItemStyle disableRipple activeSub={active} subItem>
+          <NavItemContent icon={icon} title={title} children={children} subItem />
+        </ListItemStyle>
+      </NextLink>
     );
   }
-
-  return isExternalLink(path) ? (
-    <ListItemStyle subItem href={path} disableRipple rel="noopener" target="_blank" component={Link}>
-      <NavItemContent icon={icon} title={title} children={children} subItem />
-    </ListItemStyle>
-  ) : (
-    <NextLink href={path}>
-      <ListItemStyle disableRipple activeSub={active} subItem>
-        <NavItemContent icon={icon} title={title} children={children} subItem />
-      </ListItemStyle>
-    </NextLink>
-  );
-});
+);
 // ----------------------------------------------------------------------
-
 
 export interface NavItemContentProps {
   children?: Array<NavSubMenuItemProps>;

@@ -32,7 +32,7 @@ export interface UploadSingleFileProps extends DropzoneOptions {
   helperText?: ReactNode;
   sx?: SxProps;
   [key: string]: any;
-};
+}
 
 export default function UploadSingleFile({ error = false, file, helperText, sx, ...other }: UploadSingleFileProps) {
   const { getRootProps, getInputProps, isDragActive, isDragReject, fileRejections } = useDropzone({

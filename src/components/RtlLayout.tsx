@@ -1,4 +1,3 @@
-
 import { useEffect, ReactNode } from 'react';
 // rtl
 import rtlPlugin from 'stylis-plugin-rtl';
@@ -12,7 +11,7 @@ import { useTheme } from '@mui/material/styles';
 
 export interface RtlLayoutProps {
   children?: ReactNode;
-};
+}
 
 export default function RtlLayout({ children }: RtlLayoutProps) {
   const theme = useTheme();

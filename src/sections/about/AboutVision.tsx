@@ -35,20 +35,18 @@ export default function AboutVision() {
             justifyContent: 'center',
           }}
         >
-          {['logo_amazon', 'logo_hbo', 'logo_ibm', 'logo_lya', 'logo_spotify', 'logo_netflix'].map(
-            (logo) => (
-              <m.div key={logo} variants={varFade().in}>
-                <Image
-                  alt={logo}
-                  src={`https://minimal-assets-api.vercel.app/assets/images/logos/${logo}.svg`}
-                  sx={{
-                    m: { xs: 1.5, md: 3 },
-                    height: { xs: 24, md: 32 },
-                  }}
-                />
-              </m.div>
-            )
-          )}
+          {['logo_amazon', 'logo_hbo', 'logo_ibm', 'logo_lya', 'logo_spotify', 'logo_netflix'].map((logo) => (
+            <m.div key={logo} variants={varFade().in}>
+              <Image
+                alt={logo}
+                src={`https://minimal-assets-api.vercel.app/assets/images/logos/${logo}.svg`}
+                sx={{
+                  m: { xs: 1.5, md: 3 },
+                  height: { xs: 24, md: 32 },
+                }}
+              />
+            </m.div>
+          ))}
         </Box>
       </Box>
 
@@ -56,8 +54,7 @@ export default function AboutVision() {
         <Grid item xs={12} sm={8}>
           <m.div variants={varFade().inUp}>
             <Typography variant="h3" sx={{ textAlign: 'center' }}>
-              Our vision offering the best product nulla vehicula tortor scelerisque ultrices
-              malesuada.
+              Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
             </Typography>
           </m.div>
         </Grid>

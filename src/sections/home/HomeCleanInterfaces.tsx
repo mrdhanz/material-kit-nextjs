@@ -77,9 +77,7 @@ export default function HomeCleanInterfaces() {
                 disabledEffect
                 visibleByDefault
                 alt={`clean-${index + 1}`}
-                src={`https://minimal-assets-api.vercel.app/assets/images/home/clean-${
-                  index + 1
-                }.png`}
+                src={`https://minimal-assets-api.vercel.app/assets/images/home/clean-${index + 1}.png`}
               />
             </Box>
           ))}

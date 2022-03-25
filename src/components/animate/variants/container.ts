@@ -5,7 +5,7 @@ export interface ContainerVariantProps {
   delayIn?: number;
 }
 
-export const varContainer = (props?:ContainerVariantProps) => {
+export const varContainer = (props?: ContainerVariantProps) => {
   const staggerIn = props?.staggerIn || 0.05;
   const delayIn = props?.staggerIn || 0.05;
   const staggerOut = props?.staggerIn || 0.05;

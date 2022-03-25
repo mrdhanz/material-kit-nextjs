@@ -9,7 +9,7 @@ export interface TextIconLabelProps extends StackProps {
   icon?: React.ReactNode;
   value?: React.ReactNode;
   [key: string]: any;
-};
+}
 
 export default function TextIconLabel({ icon, value, endIcon = false, sx, ...other }: TextIconLabelProps) {
   return (

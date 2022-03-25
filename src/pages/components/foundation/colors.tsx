@@ -133,7 +133,7 @@ export interface ColorCardProps {
   hexColor?: string;
   onCopy?: (text: string, result: boolean) => void;
   variation?: string;
-};
+}
 
 function ColorCard({ hexColor = '#0000', variation, onCopy }: ColorCardProps) {
   return (

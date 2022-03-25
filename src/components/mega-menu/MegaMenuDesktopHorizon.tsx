@@ -32,8 +32,8 @@ export interface MegaMenuItemParent {
 }
 
 export interface MegaMenuDesktopHorizonProps {
-  navConfig: MegaMenuItemParent[],
-};
+  navConfig: MegaMenuItemParent[];
+}
 
 export default function MegaMenuDesktopHorizon({ navConfig, ...other }: MegaMenuDesktopHorizonProps) {
   return (
@@ -48,7 +48,7 @@ export default function MegaMenuDesktopHorizon({ navConfig, ...other }: MegaMenu
 // ----------------------------------------------------------------------
 export interface MegaMenuItemProps {
   parent: MegaMenuItemParent;
-};
+}
 
 function MegaMenuItem({ parent }: MegaMenuItemProps) {
   const { title, path, more, products, tags, children } = parent;
@@ -139,7 +139,7 @@ export interface ParentItemProps {
   path?: string;
   title?: string;
   [key: string]: any;
-};
+}
 
 function ParentItem({ title, path = '', open, hasSub, ...other }: ParentItemProps) {
   const activeStyle = {

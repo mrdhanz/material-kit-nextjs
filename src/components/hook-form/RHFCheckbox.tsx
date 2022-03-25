@@ -6,10 +6,10 @@ import React from 'react';
 
 // ----------------------------------------------------------------------
 
-export interface RHFCheckboxProps extends FormControlLabelProps{
+export interface RHFCheckboxProps extends FormControlLabelProps {
   name: string;
   [key: string]: any;
-};
+}
 
 export function RHFCheckbox({ name, ...other }: RHFCheckboxProps) {
   const { control } = useFormContext();
@@ -34,7 +34,7 @@ export interface RHFMultiCheckboxProps {
   name: string;
   options: (string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>>)[];
   [key: string]: any;
-};
+}
 
 export function RHFMultiCheckbox({ name, options, ...other }: RHFMultiCheckboxProps) {
   const { control } = useFormContext();
@@ -44,8 +44,15 @@ export function RHFMultiCheckbox({ name, options, ...other }: RHFMultiCheckboxPr
       name={name}
       control={control}
       render={({ field }) => {
-        const onSelected = (option : string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>>) =>
-          field.value.includes(option) ? field.value.filter((value: string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>>) => value !== option) : [...field.value, option];
+        const onSelected = (
+          option: string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+        ) =>
+          field.value.includes(option)
+            ? field.value.filter(
+                (value: string | number | React.ReactElement<any, string | React.JSXElementConstructor<any>>) =>
+                  value !== option
+              )
+            : [...field.value, option];
 
         return (
           <FormGroup>

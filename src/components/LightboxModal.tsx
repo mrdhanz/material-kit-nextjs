@@ -111,8 +111,7 @@ export interface LightboxModalProps extends ILightBoxProps {
   [key: string]: any;
 }
 
-
-export default function LightboxModal({ images, photoIndex, setPhotoIndex, isOpen, ...other } : LightboxModalProps) {
+export default function LightboxModal({ images, photoIndex, setPhotoIndex, isOpen, ...other }: LightboxModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

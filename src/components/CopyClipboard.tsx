@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
-import { CopyToClipboard,  } from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 // @mui
 import { Tooltip, TextField, IconButton, InputAdornment, StandardTextFieldProps } from '@mui/material';
 //

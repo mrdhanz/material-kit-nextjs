@@ -10,7 +10,7 @@ import { PATH_DASHBOARD } from '../routes/paths';
 
 export interface GuestGuardProps {
   children: React.ReactNode;
-};
+}
 
 export default function GuestGuard({ children }: GuestGuardProps) {
   const { push } = useRouter();

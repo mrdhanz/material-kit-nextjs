@@ -157,7 +157,7 @@ export default function Settings() {
 
 export interface BoxMaskProps {
   value?: string;
-};
+}
 
 export function BoxMask({ value }: BoxMaskProps) {
   return (

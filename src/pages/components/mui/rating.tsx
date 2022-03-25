@@ -76,7 +76,7 @@ MUIRating.getLayout = function getLayout(page: React.ReactElement) {
 export interface IconContainerProps {
   value: number;
   [key: string]: any;
-};
+}
 
 function IconContainer(props: IconContainerProps) {
   const { value, ...other } = props;
@@ -177,10 +177,14 @@ export default function MUIRating() {
                   setHover(newHover);
                 }}
               />
-              {value !== null && <Box sx={{ ml: 2 }}>{
-                //@ts-ignore
-                labels[hover !== -1 ? hover : value]
-              }</Box>}
+              {value !== null && (
+                <Box sx={{ ml: 2 }}>
+                  {
+                    //@ts-ignore
+                    labels[hover !== -1 ? hover : value]
+                  }
+                </Box>
+              )}
             </Block>
 
             <Block title="Half ratings" sx={style}>

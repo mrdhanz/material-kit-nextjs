@@ -10,7 +10,7 @@ export interface RHFSelectProps extends StandardTextFieldProps {
   name: string;
   children?: ReactNode;
   [key: string]: any;
-};
+}
 
 export default function RHFSelect({ name, children, ...other }: RHFSelectProps) {
   const { control } = useFormContext();

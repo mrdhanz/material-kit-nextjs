@@ -86,11 +86,7 @@ export default function HomeHugePackElements() {
           <Grid item xs={12} md={4} sx={{ display: 'flex', alignItems: 'center' }}>
             <ContentStyle>
               <m.div variants={varFade().inUp}>
-                <Typography
-                  component="div"
-                  variant="overline"
-                  sx={{ mb: 2, color: 'text.disabled' }}
-                >
+                <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
                   Interface Starter Kit
                 </Typography>
               </m.div>
@@ -109,8 +105,7 @@ export default function HomeHugePackElements() {
                     color: isLight ? 'text.secondary' : 'common.white',
                   }}
                 >
-                  We collected most popular elements. Menu, sliders, buttons, inputs etc. are all
-                  here. Just dive in!
+                  We collected most popular elements. Menu, sliders, buttons, inputs etc. are all here. Just dive in!
                 </Typography>
               </m.div>
 

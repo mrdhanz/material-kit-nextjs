@@ -90,10 +90,7 @@ export default function Register() {
               <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
                 Manage the job more effectively with Minimal
               </Typography>
-              <Image
-                alt="register"
-                src="/images/illustration_register.png"
-              />
+              <Image alt="register" src="/images/illustration_register.png" />
             </SectionStyle>
           )}
 
@@ -108,12 +105,7 @@ export default function Register() {
                 </Box>
                 <Tooltip title={capitalCase(method)}>
                   <>
-                    <Image
-                      disabledEffect
-                      alt={method}
-                      src={`/icons/ic_${method}.png`}
-                      sx={{ width: 32, height: 32 }}
-                    />
+                    <Image disabledEffect alt={method} src={`/icons/ic_${method}.png`} sx={{ width: 32, height: 32 }} />
                   </>
                 </Tooltip>
               </Box>

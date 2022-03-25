@@ -8,7 +8,7 @@ export interface ColorManyPickerProps extends CheckboxProps {
   colors: string[];
   onChangeColor: (color: string) => void;
   [key: string]: any;
-};
+}
 
 export default function ColorManyPicker({ colors, onChangeColor, sx, ...other }: ColorManyPickerProps) {
   return (
@@ -19,7 +19,7 @@ export default function ColorManyPicker({ colors, onChangeColor, sx, ...other }:
         return (
           <Checkbox
             key={c}
-            color={"default"}
+            color={'default'}
             size="small"
             value={c}
             onChange={() => onChangeColor(c)}
@@ -55,7 +55,7 @@ export default function ColorManyPicker({ colors, onChangeColor, sx, ...other }:
               />
             }
             sx={{
-              color:c,
+              color: c,
               '&:hover': { opacity: 0.72 },
             }}
             {...other}

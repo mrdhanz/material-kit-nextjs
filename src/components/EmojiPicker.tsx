@@ -85,7 +85,7 @@ export default function EmojiPicker({ disabled, value, setValue, alignRight = fa
         color={theme.palette.primary.main}
         title="Pick your emoji…"
         emoji="point_up"
-        onSelect={(emoji:any) => setValue(value + emoji?.native)}
+        onSelect={(emoji: any) => setValue(value + emoji?.native)}
       />
     );
   }

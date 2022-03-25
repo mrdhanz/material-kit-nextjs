@@ -6,14 +6,13 @@ import GetFontValue from '../utils/getFontValue';
 
 // ----------------------------------------------------------------------
 
-
 export interface TextMaxLineProps extends LinkProps {
   asLink?: boolean;
   children: React.ReactNode;
   line?: number;
   persistent?: boolean;
   [key: string]: any;
-};
+}
 
 const TextMaxLine = forwardRef<HTMLAnchorElement, TextMaxLineProps>(
   ({ asLink, variant = 'body1', line = 2, persistent = false, children, sx, ...other }, ref) => {

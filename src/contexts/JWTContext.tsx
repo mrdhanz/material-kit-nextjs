@@ -81,7 +81,8 @@ const handlers = {
   },
 };
 
-const reducer = (state: AuthState, action: AuthAction) => (handlers[action.type] ? handlers[action.type](state, action) : state);
+const reducer = (state: AuthState, action: AuthAction) =>
+  handlers[action.type] ? handlers[action.type](state, action) : state;
 
 const AuthContext = createContext({
   ...initialState,
@@ -95,7 +96,7 @@ const AuthContext = createContext({
 
 export interface AuthProviderProps {
   children: React.ReactNode;
-};
+}
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);

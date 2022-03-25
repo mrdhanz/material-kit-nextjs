@@ -13,7 +13,7 @@ import React from 'react';
 
 export interface MainLayoutProps {
   children: React.ReactElement;
-};
+}
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const { pathname } = useRouter();

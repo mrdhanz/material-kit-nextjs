@@ -53,7 +53,7 @@ function SnackbarStyles() {
 
 export interface NotistackProviderProps {
   children: React.ReactNode;
-};
+}
 
 export default function NotistackProvider({ children }: NotistackProviderProps) {
   const notistackRef = createRef<SnackbarProvider>();
@@ -98,7 +98,7 @@ export default function NotistackProvider({ children }: NotistackProviderProps) 
 export interface SnackbarIconProps {
   icon: string;
   color: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
-};
+}
 
 function SnackbarIcon({ icon, color }: SnackbarIconProps) {
   return (

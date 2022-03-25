@@ -17,9 +17,15 @@ export interface SocialsButtonProps extends ButtonProps {
   };
   simple?: boolean;
   sx?: SxProps;
-};
+}
 
-export default function SocialsButton({ initialColor = false, simple = true, links = {}, sx, ...other }: SocialsButtonProps) {
+export default function SocialsButton({
+  initialColor = false,
+  simple = true,
+  links = {},
+  sx,
+  ...other
+}: SocialsButtonProps) {
   const SOCIALS = [
     {
       name: 'FaceBook',

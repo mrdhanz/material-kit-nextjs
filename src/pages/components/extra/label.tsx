@@ -113,7 +113,7 @@ export default function DemoLabel() {
 export interface BlockProps {
   children?: React.ReactNode;
   title?: string;
-};
+}
 
 export function Block({ title, children }: BlockProps) {
   return (

@@ -11,7 +11,7 @@ import React from 'react';
 export interface LayoutProps {
   children: React.ReactElement;
   variant?: 'dashboard' | 'main' | 'logoOnly';
-};
+}
 
 export default function Layout({ variant = 'dashboard', children }: LayoutProps) {
   if (variant === 'logoOnly') {

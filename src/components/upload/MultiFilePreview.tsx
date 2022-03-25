@@ -30,13 +30,18 @@ const getFileData = (file: string | FileUpload) => {
 // ----------------------------------------------------------------------
 
 export interface MultiFilePreviewProps {
-  files?: (string | FileUpload)[]
+  files?: (string | FileUpload)[];
   showPreview?: boolean;
   onRemove?: (value: string | FileUpload) => void;
   onRemoveAll?: () => void;
-};
+}
 
-export default function MultiFilePreview({ showPreview = false, files = [], onRemove, onRemoveAll }: MultiFilePreviewProps) {
+export default function MultiFilePreview({
+  showPreview = false,
+  files = [],
+  onRemove,
+  onRemoveAll,
+}: MultiFilePreviewProps) {
   const hasFile = files.length > 0;
 
   return (
@@ -69,7 +74,7 @@ export default function MultiFilePreview({ showPreview = false, files = [], onRe
                     size="small"
                     onClick={() => {
                       if (onRemove) {
-                        onRemove(file)
+                        onRemove(file);
                       }
                     }}
                     sx={{
@@ -112,11 +117,15 @@ export default function MultiFilePreview({ showPreview = false, files = [], onRe
                   secondaryTypographyProps={{ variant: 'caption' }}
                 />
 
-                <IconButton edge="end" size="small" onClick={() => {
-                  if (onRemove) {
-                    onRemove(file)
-                  }
-                }}>
+                <IconButton
+                  edge="end"
+                  size="small"
+                  onClick={() => {
+                    if (onRemove) {
+                      onRemove(file);
+                    }
+                  }}
+                >
                   <Iconify icon={'eva:close-fill'} />
                 </IconButton>
               </ListItem>

@@ -28,10 +28,10 @@ declare module '@mui/material/styles/createPalette' {
 }
 declare module '@mui/material/styles' {
   interface ThemeOptions {
-    customShadows: CustomShadows
+    customShadows: CustomShadows;
   }
   interface Theme {
-    customShadows: CustomShadows
+    customShadows: CustomShadows;
   }
 }
 
@@ -44,7 +44,7 @@ declare module '@mui/material' {
     darker: string;
     contrastText: string;
   }
-  interface Color {    
+  interface Color {
     0: string;
     50: string;
     100: string;
@@ -76,9 +76,9 @@ declare module '@mui/material' {
   interface Theme {
     customShadows: CustomShadows;
   }
-  interface Palette {    
+  interface Palette {
     chart: {
-      [key: string]: any
+      [key: string]: any;
     };
   }
 }
@@ -86,7 +86,7 @@ declare module '@mui/material' {
 // ----------------------------------------------------------------------
 export interface ThemeProviderProps {
   children: React.ReactNode;
-};
+}
 
 export default function ThemeProvider({ children }: ThemeProviderProps) {
   const { themeMode, themeDirection } = useSettings();

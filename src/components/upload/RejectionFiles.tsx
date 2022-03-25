@@ -3,13 +3,13 @@ import { alpha } from '@mui/material/styles';
 import { Box, Paper, Typography } from '@mui/material';
 // utils
 import { fData } from '../../utils/formatNumber';
-import { FileRejection } from "react-dropzone";
+import { FileRejection } from 'react-dropzone';
 
 // ----------------------------------------------------------------------
 
 export interface RejectionFilesProps {
-  fileRejections?: FileRejection[],
-};
+  fileRejections?: FileRejection[];
+}
 
 export default function RejectionFiles({ fileRejections = [] }: RejectionFilesProps) {
   return (

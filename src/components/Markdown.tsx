@@ -85,7 +85,7 @@ export interface MarkdownProps extends Options {
 export default function Markdown({ ...other }: MarkdownProps) {
   return (
     <MarkdownStyle>
-      <ReactMarkdown  rehypePlugins={[rehypeRaw]} components={components} {...other} />
+      <ReactMarkdown rehypePlugins={[rehypeRaw]} components={components} {...other} />
     </MarkdownStyle>
   );
 }

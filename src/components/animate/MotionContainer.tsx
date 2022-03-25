@@ -12,7 +12,7 @@ export interface MotionContainerProps extends BoxProps {
   animate?: boolean;
   children: ReactNode;
   [key: string]: any;
-};
+}
 
 export default function MotionContainer({ animate, action = false, children, ...other }: MotionContainerProps) {
   if (action) {

@@ -19,9 +19,16 @@ export interface BlogNewPostPreviewProps {
   isOpen?: boolean;
   onClose?: () => void;
   onSubmit?: () => void;
-};
+}
 
-export default function BlogNewPostPreview({ values, isValid, isSubmitting, isOpen = false, onClose, onSubmit }: BlogNewPostPreviewProps) {
+export default function BlogNewPostPreview({
+  values,
+  isValid,
+  isSubmitting,
+  isOpen = false,
+  onClose,
+  onSubmit,
+}: BlogNewPostPreviewProps) {
   const { title, content, description } = values;
 
   const cover = isString(values.cover) ? values.cover : values.cover?.preview;
@@ -64,13 +71,15 @@ export default function BlogNewPostPreview({ values, isValid, isSubmitting, isOp
 // ----------------------------------------------------------------------
 
 export interface PreviewHeroProps {
-  cover?: string | {
-    preview?: string;
-  };
+  cover?:
+    | string
+    | {
+        preview?: string;
+      };
   title?: string;
   content?: string;
   description?: string;
-};
+}
 
 function PreviewHero({ title, cover }: PreviewHeroProps) {
   return (

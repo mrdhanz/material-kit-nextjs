@@ -8,7 +8,7 @@ import { Box, SxProps } from '@mui/material';
 export interface LogoProps {
   disabledLink?: boolean;
   sx?: SxProps;
-};
+}
 
 const Logo = forwardRef<HTMLDivElement, LogoProps>(({ disabledLink, sx }, ref) => {
   const theme = useTheme();

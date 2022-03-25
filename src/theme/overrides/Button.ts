@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-import { Theme } from "@mui/material/styles";
+import { Theme } from '@mui/material/styles';
 
 export default function Button(theme: Theme) {
   return {
@@ -24,18 +24,12 @@ export default function Button(theme: Theme) {
             backgroundColor: theme.palette.grey[400],
           },
         },
-        containedPrimary: {
-        },
-        containedSecondary: {
-        },
-        containedInfo: {
-        },
-        containedSuccess: {
-        },
-        containedWarning: {
-        },
-        containedError: {
-        },
+        containedPrimary: {},
+        containedSecondary: {},
+        containedInfo: {},
+        containedSuccess: {},
+        containedWarning: {},
+        containedError: {},
         // outlined
         outlinedInherit: {
           border: `1px solid ${theme.palette.grey[500_32]}`,

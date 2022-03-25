@@ -9,7 +9,7 @@ import Iconify from '../Iconify';
 export interface ColorSinglePickerProps extends RadioGroupProps {
   colors: string[];
   [key: string]: any;
-};
+}
 
 export default function ColorSinglePicker({ colors, ...other }: ColorSinglePickerProps) {
   return (

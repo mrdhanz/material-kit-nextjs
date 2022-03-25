@@ -10,7 +10,7 @@ import Editor, { EditorProps } from '../editor';
 export interface RHFEditorProps extends EditorProps {
   name: string;
   [key: string]: any;
-};
+}
 
 export default function RHFEditor({ name, ...other }: RHFEditorProps) {
   const { control } = useFormContext();

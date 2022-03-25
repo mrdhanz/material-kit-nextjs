@@ -78,10 +78,10 @@ export interface MyAppProps extends AppProps {
     themeColorPresets: any;
     themeLayout: any;
     themeStretch: any;
-  }
-};
+  };
+}
 
-export default function MyApp(props : MyAppProps) {
+export default function MyApp(props: MyAppProps) {
   const { Component, pageProps, settings } = props;
 
   const getLayout = Component.getLayout ?? ((page) => page);

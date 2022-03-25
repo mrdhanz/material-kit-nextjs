@@ -25,13 +25,13 @@ const DropZoneStyle = styled('div')(({ theme }) => ({
 export interface UploadMultiFileProps extends DropzoneOptions {
   error?: boolean;
   showPreview?: boolean;
-  files?: (string | FileUpload)[]
-  onRemove?: (value : string | FileUpload) => void;
+  files?: (string | FileUpload)[];
+  onRemove?: (value: string | FileUpload) => void;
   onRemoveAll?: () => void;
   helperText?: ReactNode;
   sx: SxProps;
   [key: string]: any;
-};
+}
 
 export default function UploadMultiFile({
   error,

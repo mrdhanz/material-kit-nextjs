@@ -27,10 +27,10 @@ const SettingsContext = createContext(initialState);
 export interface SettingsProviderProps {
   children: React.ReactNode;
   defaultSettings: typeof defaultSettings;
-};
+}
 
 function SettingsProvider({ children, defaultSettings }: SettingsProviderProps) {
-  const {settings, setSettings} = useSettingCookies(defaultSettings);
+  const { settings, setSettings } = useSettingCookies(defaultSettings);
 
   const onChangeMode = (event: React.ChangeEvent<any>) => {
     setSettings({
@@ -142,5 +142,5 @@ function useSettingCookies(sett: typeof defaultSettings) {
     onChangeSetting();
   }, [settings]);
 
-  return {settings, setSettings};
+  return { settings, setSettings };
 }

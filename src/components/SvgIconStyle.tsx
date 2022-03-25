@@ -5,7 +5,7 @@ import { Box, SxProps } from '@mui/material';
 export interface SvgIconStyleProps {
   src: string;
   sx?: SxProps;
-};
+}
 
 export default function SvgIconStyle({ src, sx }: SvgIconStyleProps) {
   return (

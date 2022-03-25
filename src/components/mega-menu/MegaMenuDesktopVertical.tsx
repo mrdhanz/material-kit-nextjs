@@ -22,7 +22,7 @@ const PARENT_ITEM_HEIGHT = 40;
 export interface MegaMenuDesktopVerticalProps extends ListProps {
   navConfig: MegaMenuItemParent[];
   [key: string]: any;
-};
+}
 
 export default function MegaMenuDesktopVertical({ navConfig, ...other }: MegaMenuDesktopVerticalProps) {
   return (
@@ -38,7 +38,7 @@ export default function MegaMenuDesktopVertical({ navConfig, ...other }: MegaMen
 
 export interface MegaMenuItemProps {
   parent: MegaMenuItemParent;
-};
+}
 
 function MegaMenuItem({ parent }: MegaMenuItemProps) {
   const { title, path, more, products, tags, children } = parent;
@@ -128,12 +128,12 @@ export interface ParentItemProps extends ListItemProps {
   path?: string;
   title?: string;
   [key: string]: any;
-};
+}
 
 function ParentItem({ path = '', title, open, hasSub, ...other }: ParentItemProps) {
   const activeStyle = {
     color: 'primary.main',
-    bgcolor: (theme:any) => alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+    bgcolor: (theme: any) => alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
   } as any;
 
   return (

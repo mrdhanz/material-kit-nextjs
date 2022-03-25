@@ -7,7 +7,7 @@ const loadFeatures = () => import('./features').then((res) => res.default);
 
 export interface MotionLazyContainerProps {
   children: React.ReactNode;
-};
+}
 
 export default function MotionLazyContainer({ children }: MotionLazyContainerProps) {
   return (

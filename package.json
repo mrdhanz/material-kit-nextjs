@@ -8,7 +8,7 @@
       "url": "https://helvatia.my.id",
       "username": "mrdhanz"
     }
-  ],  
+  ],
   "version": "3.0.0",
   "description": "Next.Js Typescript Version",
   "private": true,
@@ -18,7 +18,9 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx .",
     "dev": "next dev -p 3031",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "check-format": "prettier --check .",
+    "format:fix": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md)\""
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.19.3",
