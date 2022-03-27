@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import { useRef } from 'react';
+import { createRef } from 'react';
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Paper, Link, CardContent } from '@mui/material';
@@ -22,7 +21,7 @@ const RootStyle = styled(Box)(() => ({
 // ----------------------------------------------------------------------
 
 export default function CarouselCenterMode() {
-  const carouselRef = useRef(null);
+  const carouselRef = createRef<Slider>();
   const theme = useTheme();
 
   const settings = {
@@ -66,6 +65,7 @@ export default function CarouselCenterMode() {
             '&.right': { right: 16 },
           },
         }}
+        index={0}
       >
         <Slider ref={carouselRef} {...settings}>
           {_carouselsExample.map((item) => (
@@ -81,14 +81,14 @@ export default function CarouselCenterMode() {
 
 // ----------------------------------------------------------------------
 
-CarouselItem.propTypes = {
-  item: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-  }),
+export interface CarouselItemProps {
+  item: {
+    image?: string;
+    title?: string;
+  }
 };
 
-function CarouselItem({ item }) {
+function CarouselItem({ item }: CarouselItemProps) {
   const { image, title } = item;
 
   return (

@@ -22,16 +22,16 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  startTime: PropTypes.number,
-  endTime: PropTypes.number,
-  allDays: PropTypes.bool,
-  selectedTime: PropTypes.number,
-  onChangeTime: PropTypes.func,
-  onChangeAllDays: PropTypes.func,
+export interface ControlPanelProps {
+  startTime: number;
+  endTime: number;
+  allDays?: boolean;
+  selectedTime: number;
+  onChangeTime: (time: number) => void;
+  onChangeAllDays: (allDays: boolean) => void;
 };
 
-function ControlPanel({ startTime, endTime, allDays, selectedTime, onChangeTime, onChangeAllDays }) {
+function ControlPanel({ startTime, endTime, allDays, selectedTime, onChangeTime, onChangeAllDays }: ControlPanelProps) {
   const day = 24 * 60 * 60 * 1000;
 
   const days = Math.round((endTime - startTime) / day);

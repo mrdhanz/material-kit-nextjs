@@ -14,6 +14,7 @@ import {
   DialogContent,
   FormControlLabel,
   DialogContentText,
+  Breakpoint,
 } from '@mui/material';
 
 // ----------------------------------------------------------------------
@@ -21,7 +22,7 @@ import {
 export default function MaxWidthDialog() {
   const [open, setOpen] = useState(false);
   const [fullWidth, setFullWidth] = useState(true);
-  const [maxWidth, setMaxWidth] = useState('sm');
+  const [maxWidth, setMaxWidth] = useState<false | Breakpoint | undefined>('sm');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,7 +34,6 @@ export default function MaxWidthDialog() {
 
   const handleMaxWidthChange = (event) => {
     setMaxWidth(
-      // @ts-expect-error autofill of arbitrary value is not handled.
       event.target.value
     );
   };
@@ -75,7 +75,7 @@ export default function MaxWidthDialog() {
                   id: 'max-width',
                 }}
               >
-                <MenuItem value={false}>false</MenuItem>
+                <MenuItem value={'false'}>false</MenuItem>
                 <MenuItem value="xs">xs</MenuItem>
                 <MenuItem value="sm">sm</MenuItem>
                 <MenuItem value="md">md</MenuItem>

@@ -1,10 +1,10 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function PageNotFoundIllustration({ ...other }) {
+export default function PageNotFoundIllustration({ ...other }:BoxProps) {
   const theme = useTheme();
   const PRIMARY_MAIN = theme.palette.primary.main;
   const PRIMARY_DARKER = theme.palette.primary.darker;

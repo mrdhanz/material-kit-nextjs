@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 // next
 import { useRouter } from 'next/router';
 // @mui
@@ -28,11 +27,12 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-MailDetailsToolbar.propTypes = {
-  mail: PropTypes.object,
+interface MailDetailsToolbarProps {
+  mail: any;
+  [key: string]: any;
 };
 
-export default function MailDetailsToolbar({ mail, ...other }) {
+export default function MailDetailsToolbar({ mail, ...other }:MailDetailsToolbarProps) {
   const { query, push } = useRouter();
 
   const { systemLabel, customLabel } = query;

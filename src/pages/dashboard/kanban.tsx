@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 // @mui
 import { Container, Stack } from '@mui/material';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
-import { getBoard, persistColumn, persistCard } from '../../redux/slices/kanban';
+import { getBoard, persistColumn, persistCard, KanbanResponse } from '../../redux/slices/kanban';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
 // layouts
@@ -26,14 +26,14 @@ Kanban.getLayout = function getLayout(page: React.ReactElement) {
 
 export default function Kanban() {
   const dispatch = useDispatch();
-
-  const { board } = useSelector((state) => state.kanban);
+  //@ts-ignore
+  const { board } = useSelector((state) => state.kanban as KanbanResponse);
 
   useEffect(() => {
     dispatch(getBoard());
   }, [dispatch]);
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result: DropResult) => {
     // Reorder card
     const { destination, source, draggableId, type } = result;
 
@@ -50,8 +50,8 @@ export default function Kanban() {
       return;
     }
 
-    const start = board.columns[source.droppableId];
-    const finish = board.columns[destination.droppableId];
+    const start = board.columns[parseInt(source.droppableId)];
+    const finish = board.columns[parseInt(destination.droppableId)];
 
     if (start.id === finish.id) {
       const updatedCardIds = [...start.cardIds];
@@ -123,7 +123,7 @@ export default function Kanban() {
                   <SkeletonKanbanColumn />
                 ) : (
                   board.columnOrder.map((columnId, index) => (
-                    <KanbanColumn index={index} key={columnId} column={board.columns[columnId]} />
+                    <KanbanColumn index={index} key={columnId} column={board.columns[parseInt(columnId)]} />
                   ))
                 )}
 

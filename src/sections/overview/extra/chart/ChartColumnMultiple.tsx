@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +26,7 @@ export default function ChartColumnMultiple() {
       },
     },
     plotOptions: { bar: { columnWidth: '36%' } },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} height={320} />;
 }

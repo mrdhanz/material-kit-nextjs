@@ -11,7 +11,7 @@ import cssStyles from '../../../../../utils/cssStyles';
 
 // ----------------------------------------------------------------------
 
-const defaultMapStyle = fromJS(MAP_STYLE);
+const defaultMapStyle = fromJS(MAP_STYLE) as any;
 
 const CATEGORIES = ['labels', 'roads', 'buildings', 'parks', 'water', 'background'];
 
@@ -67,11 +67,11 @@ const ColorBoxStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  onChange: PropTypes.func,
+export interface ControlPanelProps {
+  onChange: (mapStyle: any) => void;
 };
 
-function ControlPanel({ onChange }) {
+function ControlPanel({ onChange }: ControlPanelProps) {
   const theme = useTheme();
   const [visibility, setVisibility] = useState({
     water: true,
@@ -92,10 +92,9 @@ function ControlPanel({ onChange }) {
 
   useEffect(() => {
     updateMapStyle({ color, visibility });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, visibility]);
 
-  const onColorChange = (name, value) => {
+  const onColorChange = (name: string, value: any) => {
     const state = {
       ...color,
       [name]: value,

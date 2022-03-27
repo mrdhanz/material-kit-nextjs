@@ -27,11 +27,11 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  events: PropTypes.object,
+export interface ControlPanelProps {
+  events: object;
 };
 
-function ControlPanel({ events = {} }) {
+function ControlPanel({ events = {} }: ControlPanelProps) {
   return (
     <RootStyle>
       {EVENT_NAMES.map((event) => {

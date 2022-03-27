@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 // @mui
-import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from '@mui/material';
+import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel, SxProps} from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ const visuallyHidden = {
   position: 'absolute',
   whiteSpace: 'nowrap',
   width: '1px',
-};
+} as SxProps;
 
 SortingSelectingHead.propTypes = {
   orderBy: PropTypes.string.isRequired,

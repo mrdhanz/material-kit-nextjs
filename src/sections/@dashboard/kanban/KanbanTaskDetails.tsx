@@ -52,7 +52,7 @@ KanbanTaskDetails.propTypes = {
 export default function KanbanTaskDetails({ card, isOpen, onClose, onDeleteTask }) {
   const isDesktop = useResponsive('up', 'sm');
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [taskCompleted, setTaskCompleted] = useState(card.completed);
 
@@ -202,7 +202,7 @@ export default function KanbanTaskDetails({ card, isOpen, onClose, onDeleteTask 
                   onOpen={onOpenPicker}
                   value={dueDate}
                   onChange={onChangeDueDate}
-                  renderInput={() => {}}
+                  renderInput={() => <></>}
                 />
               </>
             </Stack>

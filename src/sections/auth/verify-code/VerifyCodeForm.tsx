@@ -53,7 +53,6 @@ export default function VerifyCodeForm() {
 
   useEffect(() => {
     document.addEventListener('paste', handlePasteClipboard);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = async (data) => {
@@ -74,9 +73,9 @@ export default function VerifyCodeForm() {
 
     data = data.split('');
 
-    [].forEach.call(document.querySelectorAll('#field-code'), (node, index) => {
+    Array().forEach.call(document.querySelectorAll('#field-code'), (node, index) => {
       node.value = data[index];
-      const fieldIndex = `code${index + 1}`;
+      const fieldIndex = `code${index + 1}` as keyof typeof defaultValues;
       setValue(fieldIndex, data[index]);
     });
   };
@@ -89,7 +88,7 @@ export default function VerifyCodeForm() {
 
     if (value.length >= maxLength) {
       if (fieldIntIndex < 6) {
-        const nextfield = document.querySelector(`input[name=code${fieldIntIndex + 1}]`);
+        const nextfield = document.querySelector(`input[name=code${fieldIntIndex + 1}]`) as HTMLInputElement | null;
 
         if (nextfield !== null) {
           nextfield.focus();
@@ -106,7 +105,7 @@ export default function VerifyCodeForm() {
         {Object.keys(values).map((name, index) => (
           <Controller
             key={name}
-            name={`code${index + 1}`}
+            name={`code${index + 1}` as keyof typeof defaultValues}
             control={control}
             render={({ field }) => (
               <OutlinedInput

@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import { memo } from 'react';
+import React, { memo } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
@@ -21,13 +20,16 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  data: PropTypes.array,
-  selectedCity: PropTypes.string,
-  handleChange: PropTypes.func,
+export interface City {
+  city: any;
+}
+export interface ControlPanelProps {
+  data: Array<City>;
+  selectedCity?: string;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>, city: City) => void;
 };
 
-function ControlPanel({ data, selectedCity, handleChange }) {
+function ControlPanel({ data, selectedCity, handleChange }: ControlPanelProps) {
   return (
     <RootStyle>
       {data.map((city) => (

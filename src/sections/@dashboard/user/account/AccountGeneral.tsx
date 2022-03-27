@@ -78,6 +78,7 @@ export default function AccountGeneral() {
   );
 
   return (
+    // @ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
@@ -103,7 +104,7 @@ export default function AccountGeneral() {
                 </Typography>
               }
             />
-
+            {/* @ts-ignore */}
             <RHFSwitch name="isPublic" labelPlacement="start" label="Public Profile" sx={{ mt: 5 }} />
           </Card>
         </Grid>

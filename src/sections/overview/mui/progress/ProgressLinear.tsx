@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 // @mui
-import { Box, Paper, LinearProgress } from '@mui/material';
+import { Box, Paper, LinearProgress, SxProps } from '@mui/material';
 import { Masonry } from '@mui/lab';
 //
 import { Label } from '../../Block';
@@ -15,7 +15,7 @@ const style = {
   alignItems: 'center',
   justifyContent: 'center',
   '& > *': { m: 1 },
-};
+} as SxProps;
 
 // ----------------------------------------------------------------------
 

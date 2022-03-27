@@ -1,6 +1,6 @@
 import bbox from '@turf/bbox';
 import { useState } from 'react';
-import MapGL, { LinearInterpolator, WebMercatorViewport } from 'react-map-gl';
+import MapGL, { LinearInterpolator, MapEvent, WebMercatorViewport } from 'react-map-gl';
 // _mock_
 import MAP_STYLE from '../../../../_mock/map/map-style-basic-v8.json';
 // components
@@ -10,10 +10,13 @@ import {
   MapControlNavigation,
   MapControlFullscreen,
 } from '../../../../components/map';
+import { WebMercatorViewportOptions } from '@math.gl/web-mercator/src/web-mercator-viewport';
 
 // ----------------------------------------------------------------------
-
-const mapStyle = {
+interface MAPSTYLEProps {
+  [key: string]: any;
+}
+let mapStyle: MAPSTYLEProps = {
   ...MAP_STYLE,
   sources: { ...MAP_STYLE.sources },
   layers: MAP_STYLE.layers.slice(),
@@ -49,15 +52,17 @@ mapStyle.layers.push(
 // ----------------------------------------------------------------------
 
 export default function MapZoomToBounds({ ...other }) {
-  const [viewport, setViewport] = useState({
+  const [viewport, setViewport] = useState<WebMercatorViewportOptions>({
     latitude: 37.78,
     longitude: -122.4,
     zoom: 11,
     bearing: 0,
     pitch: 0,
-  });
+    height: 250,
+    width: 250,
+  } as WebMercatorViewportOptions);
 
-  const onClick = (event) => {
+  const onClick = (event: MapEvent) => {
     const feature = event.features?.[0];
     if (feature) {
       const [minLng, minLat, maxLng, maxLat] = bbox(feature);
@@ -73,10 +78,9 @@ export default function MapZoomToBounds({ ...other }) {
         longitude,
         latitude,
         zoom,
-        transitionInterpolator: new LinearInterpolator({
-          around: [event.offsetCenter.x, event.offsetCenter.y],
-        }),
-        transitionDuration: 1000,
+        height: viewport.height,
+        width: viewport.width,
+        position: [event.lngLat[0], event.lngLat[1]],
       });
     }
   };

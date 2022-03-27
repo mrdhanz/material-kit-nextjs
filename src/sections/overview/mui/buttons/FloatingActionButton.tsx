@@ -1,5 +1,5 @@
 // @mui
-import { Fab } from '@mui/material';
+import { Fab, SxProps } from '@mui/material';
 import { Masonry } from '@mui/lab';
 // components
 import Iconify from '../../../../components/Iconify';
@@ -9,7 +9,7 @@ import { Block } from '../../Block';
 
 // ----------------------------------------------------------------------
 
-const style = {
+const style: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

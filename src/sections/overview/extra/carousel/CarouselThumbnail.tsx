@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import { useState, useRef, useEffect } from 'react';
+import { useState, createRef, useEffect } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
@@ -29,10 +29,10 @@ const RootStyle = styled(Box)(({ theme }) => {
 
 export default function CarouselThumbnail() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nav1, setNav1] = useState(undefined);
-  const [nav2, setNav2] = useState(undefined);
-  const slider1 = useRef(null);
-  const slider2 = useRef(null);
+  const [nav1, setNav1] = useState<Slider | undefined>();
+  const [nav2, setNav2] = useState<Slider | undefined>();
+  const slider1 = createRef<Slider>();
+  const slider2 = createRef<Slider>();
 
   const settings1 = {
     dots: false,

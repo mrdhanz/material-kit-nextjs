@@ -52,7 +52,7 @@ export default function LinearAlternativeLabel() {
     <>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label, index) => {
-          const stepProps = {};
+          const stepProps: any = {};
           const labelProps = {};
 
           if (isStepSkipped(index)) {

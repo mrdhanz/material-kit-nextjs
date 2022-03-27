@@ -1,18 +1,18 @@
-import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
 // @mui
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, PaperProps } from '@mui/material';
 //
 import getVariant from '../getVariant';
 
 // ----------------------------------------------------------------------
 
-ContainerView.propTypes = {
-  selectVariant: PropTypes.string,
+interface ContainerViewProps extends PaperProps {
+  selectVariant?: string;
+  [key: string]: any;
 };
 
-export default function ContainerView({ selectVariant, ...other }) {
-  const isKenburns = selectVariant.includes('kenburns');
+export default function ContainerView({ selectVariant, ...other }: ContainerViewProps) {
+  const isKenburns = selectVariant?.includes('kenburns');
 
   return (
     <Paper

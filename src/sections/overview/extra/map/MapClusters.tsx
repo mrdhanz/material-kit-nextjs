@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import MapGL, { Source, Layer } from 'react-map-gl';
+import MapGL, { Source, Layer, LayerProps, MapRef, MapEvent } from 'react-map-gl';
 
 // ----------------------------------------------------------------------
 
-const clusterLayer = {
+const clusterLayer: LayerProps = {
   id: 'clusters',
   type: 'circle',
   source: 'earthquakes',
@@ -14,7 +14,7 @@ const clusterLayer = {
   },
 };
 
-const clusterCountLayer = {
+const clusterCountLayer: LayerProps = {
   id: 'cluster-count',
   type: 'symbol',
   source: 'earthquakes',
@@ -27,7 +27,7 @@ const clusterCountLayer = {
   paint: {},
 };
 
-const unClusteredPointLayer = {
+const unClusteredPointLayer: LayerProps = {
   id: 'unclustered-point',
   type: 'circle',
   source: 'earthquakes',
@@ -43,7 +43,7 @@ const unClusteredPointLayer = {
 // ----------------------------------------------------------------------
 
 export default function MapClusters({ ...other }) {
-  const mapRef = useRef(null);
+  const mapRef = useRef<MapRef>(null);
 
   const [viewport, setViewport] = useState({
     latitude: 40.67,
@@ -54,12 +54,12 @@ export default function MapClusters({ ...other }) {
     transitionDuration: 500,
   });
 
-  const onClick = (event) => {
+  const onClick = (event: MapEvent) => {
     const feature = event?.features?.[0];
     const clusterId = feature && feature.properties.cluster_id;
     const mapboxSource = mapRef.current?.getMap().getSource('earthquakes');
 
-    mapboxSource.getClusterExpansionZoom(clusterId, (err, zoom) => {
+    mapboxSource.getClusterExpansionZoom(clusterId, (err: any, zoom: any) => {
       if (err) {
         return;
       }

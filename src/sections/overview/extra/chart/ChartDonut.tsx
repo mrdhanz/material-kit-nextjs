@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -12,7 +13,7 @@ export default function ChartDonut() {
     stroke: { show: false },
     legend: { horizontalAlign: 'center' },
     plotOptions: { pie: { donut: { size: '90%' } } },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="donut" series={CHART_DATA} options={chartOptions} width={400} />;
 }

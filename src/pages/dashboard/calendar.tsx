@@ -1,16 +1,16 @@
-import FullCalendar from '@fullcalendar/react'; // => request placed at the top
+import FullCalendar, { DateSelectArg, EventDropArg, EventSourceInput, EventClickArg  } from '@fullcalendar/react'; // => request placed at the top
 import listPlugin from '@fullcalendar/list';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import timelinePlugin from '@fullcalendar/timeline';
-import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin, { EventResizeDoneArg } from '@fullcalendar/interaction';
 //
 import React, { useState, useRef, useEffect } from 'react';
 // @mui
 import { Card, Button, Container, DialogTitle } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
-import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange } from '../../redux/slices/calendar';
+import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange, CalendarState } from '../../redux/slices/calendar';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
 // hooks
@@ -34,7 +34,7 @@ Calendar.getLayout = function getLayout(page: React.ReactElement) {
 
 // ----------------------------------------------------------------------
 
-const selectedEventSelector = (state) => {
+const selectedEventSelector = (state: { calendar: CalendarState }) => {
   const { events, selectedEventId } = state.calendar;
   if (selectedEventId) {
     return events.find((_event) => _event.id === selectedEventId);
@@ -49,7 +49,7 @@ export default function Calendar() {
 
   const isDesktop = useResponsive('up', 'sm');
 
-  const calendarRef = useRef(null);
+  const calendarRef = useRef<FullCalendar>(null);
 
   const [date, setDate] = useState(new Date());
 
@@ -57,7 +57,7 @@ export default function Calendar() {
 
   const selectedEvent = useSelector(selectedEventSelector);
 
-  const { events, isOpenModal, selectedRange } = useSelector((state) => state.calendar);
+  const { events, isOpenModal, selectedRange } = useSelector((state: { calendar: CalendarState }) => state.calendar);
 
   useEffect(() => {
     dispatch(getEvents());
@@ -82,7 +82,7 @@ export default function Calendar() {
     }
   };
 
-  const handleChangeView = (newView) => {
+  const handleChangeView = (newView: string) => {
     const calendarEl = calendarRef.current;
     if (calendarEl) {
       const calendarApi = calendarEl.getApi();
@@ -109,7 +109,7 @@ export default function Calendar() {
     }
   };
 
-  const handleSelectRange = (arg) => {
+  const handleSelectRange = (arg: DateSelectArg) => {
     const calendarEl = calendarRef.current;
     if (calendarEl) {
       const calendarApi = calendarEl.getApi();
@@ -118,14 +118,15 @@ export default function Calendar() {
     dispatch(selectRange(arg.start, arg.end));
   };
 
-  const handleSelectEvent = (arg) => {
+  const handleSelectEvent = (arg: EventClickArg) => {
     dispatch(selectEvent(arg.event.id));
   };
 
-  const handleResizeEvent = async ({ event }) => {
+  const handleResizeEvent = async ({ event }: EventResizeDoneArg) => {
     try {
       dispatch(
         updateEvent(event.id, {
+          ...event,
           allDay: event.allDay,
           start: event.start,
           end: event.end,
@@ -136,10 +137,11 @@ export default function Calendar() {
     }
   };
 
-  const handleDropEvent = async ({ event }) => {
+  const handleDropEvent = async ({ event }: EventDropArg) => {
     try {
       dispatch(
         updateEvent(event.id, {
+          ...event,
           allDay: event.allDay,
           start: event.start,
           end: event.end,
@@ -191,7 +193,7 @@ export default function Calendar() {
               editable
               droppable
               selectable
-              events={events}
+              events={events as EventSourceInput}
               ref={calendarRef}
               rerenderDelay={10}
               initialDate={date}
@@ -211,7 +213,7 @@ export default function Calendar() {
           </CalendarStyle>
         </Card>
 
-        <DialogAnimate open={isOpenModal} onClose={handleCloseModal}>
+        <DialogAnimate open={isOpenModal ?? false} onClose={handleCloseModal}>
           <DialogTitle>{selectedEvent ? 'Edit Event' : 'Add Event'}</DialogTitle>
 
           <CalendarForm event={selectedEvent || {}} range={selectedRange} onCancel={handleCloseModal} />

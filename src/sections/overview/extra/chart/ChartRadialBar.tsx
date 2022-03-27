@@ -5,6 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import { fNumber } from '../../../../utils/formatNumber';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
+
 
 // ----------------------------------------------------------------------
 
@@ -42,7 +44,7 @@ export default function ChartRadialBar() {
         },
       },
     },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="radialBar" series={CHART_DATA} options={chartOptions} height={400} />;
 }

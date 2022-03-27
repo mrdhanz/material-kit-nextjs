@@ -22,7 +22,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export interface MapControlScaleProps extends ScaleControlProps {
-  sx: SxProps;
+  sx?: SxProps;
   [key: string]: any;
 }
 

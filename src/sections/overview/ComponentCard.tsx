@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
 import NextLink from 'next/link';
 // @mui
@@ -9,15 +8,15 @@ import { varHover, varTranHover } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 
-ComponentCard.propTypes = {
-  item: PropTypes.shape({
-    href: PropTypes.string,
-    icon: PropTypes.string,
-    name: PropTypes.string,
-  }),
+interface ComponentCardProps {
+  item: {
+    href: string;
+    icon?: string;
+    name?: string;
+  };
 };
 
-export default function ComponentCard({ item }) {
+export default function ComponentCard({ item }: ComponentCardProps) {
   const { name, icon, href } = item;
 
   return (

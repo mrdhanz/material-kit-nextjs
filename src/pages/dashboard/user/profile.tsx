@@ -44,28 +44,24 @@ const TabsWrapperStyle = styled('div')(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-
 UserProfile.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
+type ProfileTab = 'profile' | 'followers' | 'friends' | 'gallery';
 // ----------------------------------------------------------------------
 
 export default function UserProfile() {
   const { themeStretch } = useSettings();
   const { user } = useAuth();
 
-  const [currentTab, setCurrentTab] = useState('profile');
+  const [currentTab, setCurrentTab] = useState<ProfileTab>('profile');
   const [findFriends, setFindFriends] = useState('');
 
-  const handleChangeTab = (newValue) => {
+  const handleChangeTab = (newValue: ProfileTab) => {
     setCurrentTab(newValue);
   };
-
-  const handleFindFriends = (value) => {
-    setFindFriends(value);
-  };
-
+  
   const PROFILE_TABS = [
     {
       value: 'profile',
@@ -80,7 +76,7 @@ export default function UserProfile() {
     {
       value: 'friends',
       icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+      component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={setFindFriends} />,
     },
     {
       value: 'gallery',

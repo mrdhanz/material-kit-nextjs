@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ export default function ChartColumnSingle() {
         formatter: (val) => `$ ${val} thousands`,
       },
     },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} height={320} />;
 }

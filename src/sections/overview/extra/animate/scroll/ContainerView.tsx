@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
-import { useRef } from 'react';
+import { createRef } from 'react';
 // @mui
 import { Box, Paper, Typography } from '@mui/material';
 // components
@@ -11,17 +10,18 @@ import getVariant from '../getVariant';
 
 // ----------------------------------------------------------------------
 
-ContainerView.propTypes = {
-  selectVariant: PropTypes.string,
+interface ContainerViewProps {
+  selectVariant?: string;
+  [key: string]: any;
 };
 
-export default function ContainerView({ selectVariant, ...other }) {
-  const scrollRef = useRef(null);
+export default function ContainerView({ selectVariant, ...other }: ContainerViewProps) {
+  const scrollRef = createRef<HTMLDivElement>();
 
   return (
     <Paper
+      component={m.div}      
       ref={scrollRef}
-      component={m.div}
       variants={varContainer()}
       sx={{
         height: 480,

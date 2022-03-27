@@ -28,14 +28,15 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-MailItemAction.propTypes = {
-  handleArchive: PropTypes.func,
-  handleDelete: PropTypes.func,
-  handleMarkRead: PropTypes.func,
-  handleHidden: PropTypes.func,
+interface MailItemActionProps {
+  handleArchive?: () => void;
+  handleDelete?: () => void;
+  handleMarkRead?: () => void;
+  handleHidden?: () => void;
+  [key: string]: any;
 };
 
-export default function MailItemAction({ handleArchive, handleDelete, handleMarkRead, handleHidden, ...other }) {
+export default function MailItemAction({ handleArchive, handleDelete, handleMarkRead, handleHidden, ...other }: MailItemActionProps) {
   const MAIL_ACTIONS = [
     {
       name: 'Archive',

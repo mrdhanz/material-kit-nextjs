@@ -52,6 +52,7 @@ export interface CarouselDotsProps {
   color?: string;
   rounded?: boolean;
   setIndex?: (current: number) => void;
+  [key: string]: any;
 }
 export default function CarouselDots(props?: CarouselDotsProps) {
   const color = props?.color;

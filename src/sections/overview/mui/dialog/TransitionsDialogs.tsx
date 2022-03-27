@@ -1,10 +1,10 @@
 import { forwardRef, useState } from 'react';
 // @mui
-import { Slide, Dialog, Button, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
+import { Slide, Dialog, Button, DialogTitle, DialogActions, DialogContent, DialogContentText, SlideProps } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-const Transition = forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
+const Transition = forwardRef<HTMLElement, SlideProps>((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 export default function TransitionsDialogs() {
   const [open, setOpen] = useState(false);

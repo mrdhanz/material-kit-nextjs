@@ -10,7 +10,7 @@ import Iconify from '../../../components/Iconify';
 // ----------------------------------------------------------------------
 
 export default function KanbanColumnAdd() {
-  const nameRef = useRef(null);
+  const nameRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,11 @@ export default function KanbanColumnAdd() {
   const handleCreateColumn = async () => {
     try {
       if (name) {
-        dispatch(createColumn({ name }));
+        dispatch(createColumn({
+          name,
+          id: '',
+          cardIds: []
+        }));
         setName('');
       }
       handleClose();

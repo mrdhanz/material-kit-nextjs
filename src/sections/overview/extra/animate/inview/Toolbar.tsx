@@ -1,20 +1,21 @@
-import PropTypes from 'prop-types';
 // @mui
-import { Box, Paper, FormControlLabel, Switch, IconButton } from '@mui/material';
+import { Box, Paper, PaperProps, FormControlLabel, Switch, IconButton } from '@mui/material';
 // components
 import Iconify from '../../../../../components/Iconify';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
-Toolbar.propTypes = {
-  isText: PropTypes.bool,
-  isMulti: PropTypes.bool,
-  onChangeText: PropTypes.func,
-  onChangeMulti: PropTypes.func,
-  onRefresh: PropTypes.func,
+interface ToolbarProps extends PaperProps {
+  isText?: boolean;
+  isMulti?: boolean;
+  onChangeText?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean)=> void;
+  onChangeMulti?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean)=> void;
+  onRefresh?: () => void;
+  [key: string]: any;
 };
 
-export default function Toolbar({ isText, isMulti, onChangeText, onChangeMulti, onRefresh, ...other }) {
+export default function Toolbar({ isText, isMulti, onChangeText, onChangeMulti, onRefresh, ...other }: ToolbarProps) {
   return (
     <Paper
       sx={{

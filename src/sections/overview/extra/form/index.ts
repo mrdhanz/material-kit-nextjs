@@ -8,12 +8,12 @@ export const defaultValues = {
   fullName: '',
   email: '',
   age: '',
-  startDate: null,
-  endDate: null,
+  startDate: {} as Date,
+  endDate: {} as Date,
   password: '',
   confirmPassword: '',
   editor: '',
-  photo: null,
+  photo: {} as File | undefined,
   terms: false,
 };
 

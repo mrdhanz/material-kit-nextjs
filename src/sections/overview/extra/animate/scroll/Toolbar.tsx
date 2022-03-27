@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
 // @mui
-import { Paper, IconButton } from '@mui/material';
+import { Paper, IconButton, PaperProps } from '@mui/material';
 // components
 import Iconify from '../../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-Toolbar.propTypes = {
-  onRefresh: PropTypes.func,
+interface ToolbarProps extends PaperProps {
+  onRefresh?: () => void;
+  [key: string]: any;
 };
 
-export default function Toolbar({ onRefresh, ...other }) {
+export default function Toolbar({ onRefresh, ...other }: ToolbarProps) {
   return (
     <Paper
       sx={{

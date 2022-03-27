@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
 // @mui
 import { alpha } from '@mui/material/styles';
-import { Paper, CardHeader, Box, Typography } from '@mui/material';
+import { Paper, CardHeader, Box, Typography, SxProps } from '@mui/material';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
-Block.propTypes = {
-  children: PropTypes.any.isRequired,
-  sx: PropTypes.object,
-  title: PropTypes.string,
+interface BlockProps {
+  children: React.ReactNode;
+  sx?: SxProps;
+  title?: string;
 };
 
-export function Block({ title, sx, children }) {
+export function Block({ title, sx, children }: BlockProps) {
   return (
     <Paper
       variant="outlined"

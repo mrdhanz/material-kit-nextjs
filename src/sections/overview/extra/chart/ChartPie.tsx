@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ export default function ChartPie() {
     plotOptions: {
       pie: { donut: { labels: { show: false } } },
     },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} width={400} />;
 }

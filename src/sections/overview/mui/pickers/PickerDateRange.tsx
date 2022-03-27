@@ -10,11 +10,12 @@ import {
 } from '@mui/lab';
 //
 import { Block } from '../../Block';
+import { RangeInput } from '@mui/lab/DateRangePicker/RangeTypes';
 
 // ----------------------------------------------------------------------
 
 export default function PickerDateRange() {
-  const [value, setValue] = useState([null, null]);
+  const [value, setValue] = useState<RangeInput<Date>>([null, null]);
 
   return (
     <Masonry columns={{ xs: 1, md: 2 }} spacing={3}>

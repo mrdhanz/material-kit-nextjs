@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 // @mui
-import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from '@mui/material';
+import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel, SxProps } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-const visuallyHidden = {
+const visuallyHidden: SxProps = {
   border: 0,
   clip: 'rect(0 0 0 0)',
   height: '1px',

@@ -7,10 +7,12 @@ import React from 'react';
 
 // ----------------------------------------------------------------------
 
-export interface FabButtonAnimateProps extends FabProps {
+export interface FabButtonAnimateProps {
   children: React.ReactNode;
+  color?: 'default' | 'primary' | 'secondary' | 'inherit'| 'info' | 'success' | 'warning' | 'error';
   size?: 'small' | 'medium' | 'large';
   sxWrap?: SxProps;
+  [key: string]: any;
 }
 
 const FabButtonAnimate = forwardRef<HTMLButtonElement, FabButtonAnimateProps>(

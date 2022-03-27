@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import { useRef } from 'react';
+import { createRef } from 'react';
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
@@ -24,7 +23,7 @@ const RootStyle = styled(Box)(({ theme }) => ({
 
 export default function CarouselBasic3() {
   const theme = useTheme();
-  const carouselRef = useRef(null);
+  const carouselRef = createRef<Slider>();
 
   const settings = {
     dots: true,
@@ -59,6 +58,7 @@ export default function CarouselBasic3() {
             '&.right': { right: 16 },
           },
         }}
+        index={0}
       >
         <Slider ref={carouselRef} {...settings}>
           {_carouselsExample.map((item) => (
@@ -72,11 +72,11 @@ export default function CarouselBasic3() {
 
 // ----------------------------------------------------------------------
 
-CarouselItem.propTypes = {
-  item: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-  }),
+export interface CarouselItemProps {
+  item: {
+    image?: string;
+    title?: string;
+  };
 };
 
 function CarouselItem({ item }) {

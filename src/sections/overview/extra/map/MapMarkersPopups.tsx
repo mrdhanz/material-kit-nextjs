@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
-import MapGL from 'react-map-gl';
+import MapGL, { InteractiveMapProps } from 'react-map-gl';
 // @mui
 import { Box, Typography } from '@mui/material';
 // components
@@ -15,13 +14,21 @@ import {
 } from '../../../../components/map';
 
 // ----------------------------------------------------------------------
+export interface Country {
+  name: string;
+  latlng: [number, number];
+  country_code: string;
+  timezones: any;
+  photo: string;
+}
 
-MapMarkersPopups.propTypes = {
-  data: PropTypes.array,
+export interface MapMarkersPopupsProps extends InteractiveMapProps {
+  data: Array<Country>;
+  [key: string]: any;
 };
 
-export default function MapMarkersPopups({ data, ...other }) {
-  const [tooltip, setTooltip] = useState(null);
+export default function MapMarkersPopups({ data, ...other }: MapMarkersPopupsProps) {
+  const [tooltip, setTooltip] = useState<Country | null>(null);
   const [viewport, setViewport] = useState({
     zoom: 2,
   });

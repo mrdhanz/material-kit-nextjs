@@ -6,9 +6,51 @@ import axios from '../../utils/axios';
 import { dispatch } from '../store';
 
 // ----------------------------------------------------------------------
+export interface KanbanResponse {
+  board: Board;
+}
 
-function objFromArray(array, key = 'id') {
-  return array.reduce((accumulator, current) => {
+export interface Board {
+  cards:       Card[];
+  columns:     Column[];
+  columnOrder: string[];
+}
+
+export interface Card {
+  id:          string;
+  name:        string;
+  description: string;
+  assignee:    Assignee[];
+  due:         Array<number | null>;
+  attachments: string[];
+  comments:    Comment[];
+  completed:   boolean;
+}
+
+export interface Assignee {
+  id:     string;
+  avatar: string;
+  name:   string;
+}
+
+export interface Comment {
+  id:          string;
+  avatar:      string;
+  name:        string;
+  createdAt:   Date;
+  messageType: string;
+  message:     string;
+}
+
+export interface Column {
+  id:      string;
+  name:    string;
+  cardIds: string[];
+}
+
+
+function objFromArray(array: any, key = 'id') {
+  return array.reduce((accumulator: any, current: any) => {
     accumulator[current[key]] = current;
     return accumulator;
   }, {});
@@ -18,9 +60,9 @@ const initialState = {
   isLoading: false,
   error: null,
   board: {
-    cards: {},
-    columns: {},
-    columnOrder: [],
+    cards: [] as Card[],
+    columns: [] as Column[],
+    columnOrder: [] as string[],
   },
 };
 
@@ -84,7 +126,7 @@ const slice = createSlice({
       const { cardId, columnId } = action.payload;
 
       state.board.columns[columnId].cardIds = state.board.columns[columnId].cardIds.filter((id) => id !== cardId);
-      state.board.cards = omit(state.board.cards, [cardId]);
+      state.board.cards = Object.values(omit(state.board.cards, [cardId]));
     },
 
     // UPDATE COLUMN
@@ -101,8 +143,8 @@ const slice = createSlice({
       const deletedColumn = state.board.columns[columnId];
 
       state.isLoading = false;
-      state.board.columns = omit(state.board.columns, [columnId]);
-      state.board.cards = omit(state.board.cards, [...deletedColumn.cardIds]);
+      state.board.columns = Object.values(omit(state.board.columns, [columnId]));
+      state.board.cards = Object.values(omit(state.board.cards, [...deletedColumn.cardIds])) as Card[];
       state.board.columnOrder = state.board.columnOrder.filter((c) => c !== columnId);
     },
   },
@@ -119,7 +161,7 @@ export function getBoard() {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/kanban/board');
+      const response = await axios.get<KanbanResponse>('/api/kanban/board');
       dispatch(slice.actions.getBoardSuccess(response.data.board));
     } catch (error) {
       dispatch(slice.actions.hasError(error));
@@ -129,7 +171,7 @@ export function getBoard() {
 
 // ----------------------------------------------------------------------
 
-export function createColumn(newColumn) {
+export function createColumn(newColumn: Column) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -143,7 +185,7 @@ export function createColumn(newColumn) {
 
 // ----------------------------------------------------------------------
 
-export function updateColumn(columnId, updateColumn) {
+export function updateColumn(columnId: string, updateColumn: Column) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -160,7 +202,7 @@ export function updateColumn(columnId, updateColumn) {
 
 // ----------------------------------------------------------------------
 
-export function deleteColumn(columnId) {
+export function deleteColumn(columnId: string) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -174,7 +216,7 @@ export function deleteColumn(columnId) {
 
 // ----------------------------------------------------------------------
 
-export function persistColumn(newColumnOrder) {
+export function persistColumn(newColumnOrder: string[]) {
   return () => {
     dispatch(slice.actions.persistColumn(newColumnOrder));
   };
@@ -182,7 +224,7 @@ export function persistColumn(newColumnOrder) {
 
 // ----------------------------------------------------------------------
 
-export function persistCard(columns) {
+export function persistCard(columns: Column[]) {
   return () => {
     dispatch(slice.actions.persistCard(columns));
   };
@@ -190,7 +232,7 @@ export function persistCard(columns) {
 
 // ----------------------------------------------------------------------
 
-export function addTask({ card, columnId }) {
+export function addTask({ card, columnId }: { card: Card; columnId: string }) {
   return () => {
     dispatch(slice.actions.addTask({ card, columnId }));
   };
@@ -198,8 +240,8 @@ export function addTask({ card, columnId }) {
 
 // ----------------------------------------------------------------------
 
-export function deleteTask({ cardId, columnId }) {
-  return (dispatch) => {
+export function deleteTask({ cardId, columnId }: { cardId: string; columnId: string }) {
+  return () => {
     dispatch(slice.actions.deleteTask({ cardId, columnId }));
   };
 }

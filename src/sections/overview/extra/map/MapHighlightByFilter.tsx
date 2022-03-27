@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import MapGL, { Layer, Source } from 'react-map-gl';
+import MapGL, { Layer, LayerProps, Source, MapEvent } from 'react-map-gl';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
@@ -17,7 +17,11 @@ import {
 export default function MapHighlightByFilter({ ...other }) {
   const theme = useTheme();
 
-  const [hoverInfo, setHoverInfo] = useState(null);
+  const [hoverInfo, setHoverInfo] = useState<{
+    longitude: number;
+    latitude: number;
+    countyName: string;
+  }>();
 
   const [viewport, setViewport] = useState({
     latitude: 38.88,
@@ -32,7 +36,7 @@ export default function MapHighlightByFilter({ ...other }) {
 
   const filter = useMemo(() => ['in', 'COUNTY', selectedCounty], [selectedCounty]);
 
-  const countiesLayer = {
+  const countiesLayer: LayerProps = {
     id: 'counties',
     type: 'fill',
     source: 'counties',
@@ -44,7 +48,7 @@ export default function MapHighlightByFilter({ ...other }) {
     },
   };
 
-  const highlightLayer = {
+  const highlightLayer: LayerProps = {
     id: 'counties-highlighted',
     type: 'fill',
     source: 'counties',
@@ -56,7 +60,7 @@ export default function MapHighlightByFilter({ ...other }) {
     },
   };
 
-  const onHover = useCallback((event) => {
+  const onHover = useCallback((event: MapEvent) => {
     const county = event.features && event.features[0];
     setHoverInfo({
       longitude: event.lngLat[0],

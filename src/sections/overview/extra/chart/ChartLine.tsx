@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -12,7 +13,7 @@ export default function ChartLine() {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     },
     tooltip: { x: { show: false }, marker: { show: false } },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="line" series={CHART_DATA} options={chartOptions} height={320} />;
 }

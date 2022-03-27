@@ -1,18 +1,18 @@
 import jwtDecode from 'jwt-decode';
-import { verify, sign } from 'jsonwebtoken';
+import { verify, sign, JwtPayload } from 'jsonwebtoken';
 //
 import axios from './axios';
 
 // ----------------------------------------------------------------------
 
-const isValidToken = (accessToken) => {
+const isValidToken = (accessToken?: string) => {
   if (!accessToken) {
     return false;
   }
-  const decoded = jwtDecode(accessToken);
+  const decoded = jwtDecode<JwtPayload>(accessToken);
   const currentTime = Date.now() / 1000;
 
-  return decoded.exp > currentTime;
+  return (decoded?.exp || 0) > currentTime;
 };
 
 //  const handleTokenExpired = (exp) => {
@@ -28,7 +28,7 @@ const isValidToken = (accessToken) => {
 //   }, timeLeft);
 // };
 
-const setSession = (accessToken) => {
+const setSession = (accessToken?: string) => {
   if (accessToken) {
     localStorage.setItem('accessToken', accessToken);
     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;

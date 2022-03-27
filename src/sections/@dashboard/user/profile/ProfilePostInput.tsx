@@ -7,7 +7,7 @@ import Iconify from '../../../../components/Iconify';
 // ----------------------------------------------------------------------
 
 export default function ProfilePostInput() {
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleAttach = () => {
     fileInputRef.current?.click();

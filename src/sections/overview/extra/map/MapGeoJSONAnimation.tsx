@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import MapGL, { Layer, Source } from 'react-map-gl';
+import MapGL, { Layer, Source, LayerProps } from 'react-map-gl';
 // @mui
 import { useTheme } from '@mui/material/styles';
 // components
@@ -9,10 +9,11 @@ import {
   MapControlNavigation,
   MapControlFullscreen,
 } from '../../../../components/map';
+import { Point } from 'geojson';
 
 // ----------------------------------------------------------------------
-
-function pointOnCircle({ center, angle, radius }) {
+interface PointOnCircleProps { center: [number, number], angle: number, radius: number }
+function pointOnCircle({ center, angle, radius }: PointOnCircleProps): Point {
   return {
     type: 'Point',
     coordinates: [center[0] + Math.cos(angle) * radius, center[1] + Math.sin(angle) * radius],
@@ -22,7 +23,7 @@ function pointOnCircle({ center, angle, radius }) {
 export default function MapGeoJSONAnimation({ ...other }) {
   const theme = useTheme();
 
-  const [pointData, setPointData] = useState(null);
+  const [pointData, setPointData] = useState<Point>();
 
   const [viewport, setViewport] = useState({
     latitude: 0,
@@ -32,7 +33,7 @@ export default function MapGeoJSONAnimation({ ...other }) {
     pitch: 0,
   });
 
-  const pointLayer = {
+  const pointLayer: LayerProps = {
     type: 'circle',
     paint: {
       'circle-radius': 10,
@@ -62,7 +63,13 @@ export default function MapGeoJSONAnimation({ ...other }) {
         <MapControlGeolocate />
 
         {pointData && (
-          <Source type="geojson" data={pointData}>
+          <Source type="geojson" data={{
+            geometry: pointData,
+            type: 'Feature',
+            properties: {
+            
+            }
+          }}>
             <Layer {...pointLayer} />
           </Source>
         )}

@@ -27,7 +27,7 @@ MailSidebar.propTypes = {
 
 export default function MailSidebar({ isOpenSidebar, onOpenCompose, onCloseSidebar }) {
   const { pathname } = useRouter();
-
+  //@ts-ignore
   const { labels } = useSelector((state) => state.mail);
 
   const isDesktop = useResponsive('up', 'md');
@@ -38,7 +38,6 @@ export default function MailSidebar({ isOpenSidebar, onOpenCompose, onCloseSideb
     if (isOpenSidebar) {
       onCloseSidebar();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const handleOpenCompose = () => {

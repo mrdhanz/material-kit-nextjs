@@ -6,7 +6,7 @@ import Scrollbar from '../../../../components/Scrollbar';
 
 // ----------------------------------------------------------------------
 
-function createData(name, code, population, size) {
+function createData(name: string, code: string, population: number, size: number) {
   const density = population / size;
   return { name, code, population, size, density };
 }
@@ -29,7 +29,15 @@ const GROUPING_TABLE = [
   createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
-const COLUMNS = [
+interface GroupingData {
+  id: string;
+  label: string;
+  minWidth?: number;
+  align?: "inherit" | "left" | "center" | "right" | "justify";
+  format?: (value: string | number) => string;
+}
+
+const COLUMNS: GroupingData[] = [
   { id: 'name', label: 'Name', minWidth: 170 },
   { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
   {
@@ -51,7 +59,7 @@ const COLUMNS = [
     label: 'Density',
     minWidth: 170,
     align: 'right',
-    format: (value) => value.toFixed(2),
+    format: (value) => typeof value !== 'string' ? value.toFixed(2) : value,
   },
 ];
 

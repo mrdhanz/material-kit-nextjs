@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Box, Rating, LinearProgress, IconButton } from '@mui/material';
-import { DataGrid, GridToolbar, getGridNumericColumnOperators } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar, getGridNumericColumnOperators, GridSelectionModel, GridColumns } from '@mui/x-data-grid';
 // utils
 import createAvatar from '../../../../utils/createAvatar';
 import { fPercent } from '../../../../utils/formatNumber';
@@ -30,7 +29,7 @@ function RenderStatus(getStatus) {
   );
 }
 
-const columns = [
+const columns: GridColumns = [
   // OPTIONS
   // https://material-ui.com/api/data-grid/grid-col-def/#main-content
   // - hide: false (default)
@@ -105,7 +104,7 @@ const columns = [
     disableColumnMenu: true,
     renderCell: (params) => {
       const getRating = params.getValue(params.id, 'rating');
-      return <Rating size="small" value={getRating} precision={0.5} readOnly />;
+      return <Rating size="small" value={getRating as number} precision={0.5} readOnly />;
     },
   },
   {
@@ -142,11 +141,11 @@ const columns = [
     headerName: 'Performance',
     width: 160,
     renderCell: (params) => {
-      const value = params.getValue(params.id, 'performance');
+      const value = params.getValue(params.id, 'performance') ?? 0;
       return (
         <Stack direction="row" alignItems="center" sx={{ px: 2, width: 1, height: 1 }}>
           <LinearProgress
-            value={value}
+            value={value as number}
             variant="determinate"
             color={(value < 30 && 'error') || (value > 30 && value < 70 && 'warning') || 'primary'}
             sx={{ width: 1, height: 6 }}
@@ -184,14 +183,14 @@ const columns = [
 
 // ----------------------------------------------------------------------
 
-RatingInputValue.propTypes = {
-  applyValue: PropTypes.func,
-  item: PropTypes.shape({
-    value: PropTypes.number,
-  }),
+interface RatingInputValueProps {
+  applyValue: (item: any) => void;
+  item: {
+    value?: number;
+  };
 };
 
-function RatingInputValue({ item, applyValue }) {
+function RatingInputValue({ item, applyValue }: RatingInputValueProps) {
   return (
     <Box sx={{ p: 1, height: 1, alignItems: 'flex-end', display: 'flex' }}>
       <Rating
@@ -208,7 +207,7 @@ function RatingInputValue({ item, applyValue }) {
 }
 
 export default function DataGridCustom() {
-  const [selectionModel, setSelectionModel] = useState([]);
+  const [selectionModel, setSelectionModel] = useState<GridSelectionModel>([]);
 
   if (columns.length > 0) {
     const ratingColumn = columns.find((column) => column.field === 'rating');
@@ -219,7 +218,7 @@ export default function DataGridCustom() {
       InputComponent: RatingInputValue,
     }));
     columns[ratingColIndex] = {
-      ...ratingColumn,
+      ...ratingColumn!,
       filterOperators: ratingFilterOperators,
     };
   }

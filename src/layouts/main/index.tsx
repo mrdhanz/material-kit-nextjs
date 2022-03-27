@@ -12,7 +12,7 @@ import React from 'react';
 // ----------------------------------------------------------------------
 
 export interface MainLayoutProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {

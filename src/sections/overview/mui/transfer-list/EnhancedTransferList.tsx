@@ -30,7 +30,7 @@ function union(a, b) {
 }
 
 export default function EnhancedTransferList() {
-  const [checked, setChecked] = useState([]);
+  const [checked, setChecked] = useState<boolean[]>([]);
   const [left, setLeft] = useState([0, 1, 2, 3]);
   const [right, setRight] = useState([4, 5, 6, 7]);
   const leftChecked = intersection(checked, left);

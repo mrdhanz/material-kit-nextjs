@@ -1,12 +1,12 @@
 // @mui
-import { ButtonGroup, Button } from '@mui/material';
+import { ButtonGroup, Button, SxProps } from '@mui/material';
 import { Masonry } from '@mui/lab';
 //
 import { Block } from '../../Block';
 
 // ----------------------------------------------------------------------
 
-const style = {
+const style: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

@@ -34,10 +34,10 @@ export default function MailList({ onOpenSidebar }) {
   const { query } = useRouter();
 
   const dispatch = useDispatch();
-
+  //@ts-ignore
   const { mails } = useSelector((state) => state.mail);
 
-  const [selectedMails, setSelectedMails] = useState([]);
+  const [selectedMails, setSelectedMails] = useState<Array<any>>([]);
 
   const [dense, setDense] = useState(false);
 

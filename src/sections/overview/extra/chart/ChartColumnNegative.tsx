@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import { useTheme } from '@mui/material/styles';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
-
+import { ApexOptions } from 'apexcharts';
 // ----------------------------------------------------------------------
 
 const CHART_DATA = [
@@ -75,7 +75,7 @@ export default function ChartColumnNegative() {
         },
       },
     },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} height={320} />;
 }

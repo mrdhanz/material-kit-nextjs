@@ -34,6 +34,7 @@ export default function RegisterForm() {
     lastName: '',
     email: '',
     password: '',
+    afterSubmit: false,
   };
 
   const methods = useForm({
@@ -56,12 +57,13 @@ export default function RegisterForm() {
       console.error(error);
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', error);
+        setError('afterSubmit', error as any);
       }
     }
   };
 
   return (
+    //@ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}

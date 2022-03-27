@@ -9,13 +9,13 @@ import SearchNotFound from '../../../../components/SearchNotFound';
 
 // ----------------------------------------------------------------------
 
-ProfileFriends.propTypes = {
-  friends: PropTypes.array,
-  findFriends: PropTypes.string,
-  onFindFriends: PropTypes.func,
+export interface ProfileFriendsProps {
+  friends?: Friend[];
+  findFriends?: string;
+  onFindFriends: (value: string) => void;
 };
 
-export default function ProfileFriends({ friends, findFriends, onFindFriends }) {
+export default function ProfileFriends({ friends = [], findFriends, onFindFriends }: ProfileFriendsProps) {
   const friendFiltered = applyFilter(friends, findFriends);
 
   const isNotFound = friendFiltered.length === 0;
@@ -60,11 +60,17 @@ export default function ProfileFriends({ friends, findFriends, onFindFriends }) 
 
 // ----------------------------------------------------------------------
 
-FriendCard.propTypes = {
-  friend: PropTypes.object,
-};
+export interface Friend {
+  id: string;
+  name: string;
+  role: string;
+  avatarUrl: string;
+}
+export interface FriendCardProps {
+  friend: Friend;
+}
 
-function FriendCard({ friend }) {
+function FriendCard({ friend }: FriendCardProps) {
   const { name, role, avatarUrl } = friend;
 
   return (
@@ -96,9 +102,9 @@ function FriendCard({ friend }) {
 }
 // ----------------------------------------------------------------------
 
-function applyFilter(array, query) {
+function applyFilter(array: Friend[], query?: string) {
   if (query) {
-    return array.filter((friend) => friend.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return array.filter((friend) => friend.name.toLowerCase().indexOf(query?.toLowerCase()) !== -1);
   }
 
   return array;

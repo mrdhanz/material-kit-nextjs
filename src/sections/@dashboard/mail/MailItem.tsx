@@ -73,7 +73,7 @@ export default function MailItem({ mail, isDense, isSelected, onSelect, onDesele
   const { query } = useRouter();
 
   const params = query;
-
+  //@ts-ignore
   const { labels } = useSelector((state) => state.mail);
 
   const isDesktop = useResponsive('up', 'md');

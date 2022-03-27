@@ -12,13 +12,14 @@ import {
   Typography,
   ListItemText,
   ListItemButton,
+  SlideProps,
 } from '@mui/material';
 // components
 import Iconify from '../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-const Transition = forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
+const Transition = forwardRef<HTMLElement, SlideProps>((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 export default function FullScreenDialogs() {
   const [open, setOpen] = useState(false);

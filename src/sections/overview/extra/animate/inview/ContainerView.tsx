@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
 // @mui
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, PaperProps } from '@mui/material';
 // components
 import { MotionContainer } from '../../../../../components/animate';
 //
@@ -19,13 +18,14 @@ const IMG = [
   'https://minimal-assets-api.vercel.app/assets/images/feeds/feed_8.jpg',
 ];
 
-ContainerView.propTypes = {
-  isText: PropTypes.bool,
-  isMulti: PropTypes.bool,
-  selectVariant: PropTypes.string,
+interface ContainerViewProps extends PaperProps {
+  isText?: boolean;
+  isMulti?: boolean;
+  selectVariant?: string;
+  [key: string]: any;
 };
 
-export default function ContainerView({ isText, isMulti, selectVariant, ...other }) {
+export default function ContainerView({ isText, isMulti, selectVariant, ...other }: ContainerViewProps) {
   const items = isMulti ? IMG : IMG.slice(0, 1);
 
   return (

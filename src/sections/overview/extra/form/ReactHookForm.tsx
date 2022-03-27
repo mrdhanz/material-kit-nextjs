@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, createRef } from 'react';
 // form
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import { useForm, Controller } from 'react-hook-form';
@@ -18,7 +18,7 @@ import { FormSchema, defaultValues } from '.';
 // ----------------------------------------------------------------------
 
 export default function ReactHookForm() {
-  const fileInputRef = useRef(null);
+  const fileInputRef = createRef<HTMLInputElement>();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -66,6 +66,7 @@ export default function ReactHookForm() {
   };
 
   return (
+    // @ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
@@ -140,7 +141,7 @@ export default function ReactHookForm() {
 
         <Grid item xs={12} md={6}>
           <Stack spacing={3}>
-            <RHFEditor name="editor" />
+            <RHFEditor id='react-hook-form-editor' value='' name="editor" />
 
             <div>
               <Stack direction="row" alignItems="center" spacing={3}>
@@ -182,6 +183,7 @@ export default function ReactHookForm() {
             </div>
 
             <div>
+              {/* @ts-ignore */}
               <RHFCheckbox name="terms" label=" Terms and Conditions" />
 
               {errors.terms && (

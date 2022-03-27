@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
 // @mui
-import { Box, Radio, Paper, Typography, RadioGroup, FormControlLabel } from '@mui/material';
+import { Box, Radio, Paper, Typography, RadioGroup, FormControlLabel, SxProps, Theme } from '@mui/material';
 // components
 import Scrollbar from '../../../../components/Scrollbar';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  variantKey: PropTypes.array.isRequired,
-  selectVariant: PropTypes.string.isRequired,
-  onChangeVariant: PropTypes.func,
-  sx: PropTypes.object,
+interface ControlPanelProps {
+  variantKey: Array<any>;
+  selectVariant: string;
+  onChangeVariant: (event: React.ChangeEvent<HTMLInputElement>, value: string) => void;
+  sx?: SxProps<Theme>;
 };
 
-export default function ControlPanel({ variantKey, selectVariant, onChangeVariant, sx }) {
+export default function ControlPanel({ variantKey, selectVariant, onChangeVariant, sx }: ControlPanelProps) {
   return (
     <Paper variant="outlined" sx={{ height: 480, ...sx }}>
       <Scrollbar>

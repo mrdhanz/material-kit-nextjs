@@ -21,12 +21,12 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  year: PropTypes.number,
-  onChange: PropTypes.func,
+export interface ControlPanelProps {
+  year: number;
+  onChange: (year: number) => void;
 };
 
-function ControlPanel({ year, onChange }) {
+function ControlPanel({ year, onChange }: ControlPanelProps) {
   return (
     <RootStyle>
       <Typography variant="body2" sx={{ color: 'common.white' }}>

@@ -31,7 +31,7 @@ export default function ContactMap() {
 
   const isLight = theme.palette.mode === 'light';
 
-  const [tooltip, setTooltip] = useState(null);
+  const [tooltip, setTooltip] = useState<any>();
 
   const [viewport, setViewport] = useState({
     latitude: 12,

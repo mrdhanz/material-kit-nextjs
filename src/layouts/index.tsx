@@ -9,7 +9,7 @@ import React from 'react';
 // ----------------------------------------------------------------------
 
 export interface LayoutProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
   variant?: 'dashboard' | 'main' | 'logoOnly';
 }
 
@@ -24,7 +24,7 @@ export default function Layout({ variant = 'dashboard', children }: LayoutProps)
 
   return (
     <AuthGuard>
-      <DashboardLayout> {children} </DashboardLayout>
+      <DashboardLayout>{children}</DashboardLayout>
     </AuthGuard>
   );
 }

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 // form
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
@@ -13,12 +12,12 @@ import { FormProvider, RHFTextField } from '../../../components/hook-form';
 
 // ----------------------------------------------------------------------
 
-ResetPasswordForm.propTypes = {
-  onSent: PropTypes.func,
-  onGetEmail: PropTypes.func,
+interface ResetPasswordFormProps {
+  onSent: () => void;
+  onGetEmail: (value: string) => void;
 };
 
-export default function ResetPasswordForm({ onSent, onGetEmail }) {
+export default function ResetPasswordForm({ onSent, onGetEmail }: ResetPasswordFormProps) {
   const isMountedRef = useIsMountedRef();
 
   const ResetPasswordSchema = Yup.object().shape({
@@ -48,6 +47,7 @@ export default function ResetPasswordForm({ onSent, onGetEmail }) {
   };
 
   return (
+    //@ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
         <RHFTextField name="email" label="Email address" />

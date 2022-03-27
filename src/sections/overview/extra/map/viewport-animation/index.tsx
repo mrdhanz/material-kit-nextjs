@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { useState, useCallback } from 'react';
-import MapGL, { FlyToInterpolator } from 'react-map-gl';
+import MapGL, { FlyToInterpolator, InteractiveMapProps } from 'react-map-gl';
 // components
 import {
   MapControlScale,
@@ -13,13 +12,14 @@ import ControlPanel from './ControlPanel';
 
 // ----------------------------------------------------------------------
 
-MapViewportAnimation.propTypes = {
-  data: PropTypes.array,
+interface MapViewportAnimationProps {
+  data?: Array<any>;
+  [key: string]: any;
 };
 
-export default function MapViewportAnimation({ data, ...other }) {
+export default function MapViewportAnimation({ data = [], ...other }: MapViewportAnimationProps) {
   const [selectedCity, setSelectedCity] = useState(data[2].city);
-  const [viewport, setViewport] = useState({
+  const [viewport, setViewport] = useState<InteractiveMapProps>({
     latitude: 37.7751,
     longitude: -122.4193,
     zoom: 10,

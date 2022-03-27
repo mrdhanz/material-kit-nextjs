@@ -12,7 +12,7 @@ PaymentNewCardForm.propTypes = {
 };
 
 export default function PaymentNewCardForm({ onCancel }) {
-  const [isOpen, setIsOpen] = useState(null);
+  const [isOpen, setIsOpen] = useState<HTMLButtonElement | null>();
 
   return (
     <>

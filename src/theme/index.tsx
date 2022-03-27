@@ -77,6 +77,14 @@ declare module '@mui/material' {
     customShadows: CustomShadows;
   }
   interface Palette {
+    gradients: {
+      primary: string;
+      info: string;
+      success: string;
+      warning: string;
+      error: string;
+      [key: string]: string;
+    };
     chart: {
       [key: string]: any;
     };

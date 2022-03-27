@@ -14,13 +14,13 @@ function intersection(a, b) {
   return a.filter((value) => b.indexOf(value) !== -1);
 }
 export default function SimpleTransferList() {
-  const [checked, setChecked] = useState([]);
+  const [checked, setChecked] = useState<boolean[]>([]);
   const [left, setLeft] = useState([0, 1, 2, 3]);
   const [right, setRight] = useState([4, 5, 6, 7]);
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
 
-  const handleToggle = (value) => () => {
+  const handleToggle = (value: boolean) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
     if (currentIndex === -1) {

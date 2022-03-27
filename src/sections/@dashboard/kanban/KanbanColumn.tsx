@@ -26,7 +26,7 @@ export default function KanbanColumn({ column, index }) {
   const dispatch = useDispatch();
 
   const { enqueueSnackbar } = useSnackbar();
-
+  //@ts-ignore
   const { board } = useSelector((state) => state.kanban);
 
   const [open, setOpen] = useState(false);

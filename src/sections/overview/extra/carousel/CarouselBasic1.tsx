@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import { useState, useRef } from 'react';
+import { useState, createRef } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Card } from '@mui/material';
@@ -14,7 +13,7 @@ import { CarouselArrowIndex } from '../../../../components/carousel';
 
 export default function CarouselBasic1() {
   const theme = useTheme();
-  const carouselRef = useRef(null);
+  const carouselRef = createRef<Slider>();
   const [currentIndex, setCurrentIndex] = useState(theme.direction === 'rtl' ? _carouselsExample.length - 1 : 0);
 
   const settings = {
@@ -55,14 +54,14 @@ export default function CarouselBasic1() {
 
 // ----------------------------------------------------------------------
 
-CarouselItem.propTypes = {
-  item: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-  }),
+export interface CarouselItemProps {
+  item: {
+    image?: string;
+    title?: string;
+  };
 };
 
-function CarouselItem({ item }) {
+function CarouselItem({ item }: CarouselItemProps) {
   const { image, title } = item;
 
   return <Image alt={title} src={image} ratio="1/1" />;

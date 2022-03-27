@@ -1,5 +1,5 @@
 // @mui
-import { Avatar, Chip, Stack, Paper } from '@mui/material';
+import { Avatar, Chip, Stack, Paper, SxProps } from '@mui/material';
 // components
 import Iconify from '../../../../components/Iconify';
 //
@@ -7,7 +7,7 @@ import { Label } from '../../Block';
 
 // ----------------------------------------------------------------------
 
-const style = {
+const style: SxProps = {
   p: 2,
   display: 'flex',
   alignItems: 'center',

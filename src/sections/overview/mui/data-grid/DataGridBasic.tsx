@@ -1,5 +1,5 @@
 // @mui
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridColumns } from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
 // _mock_
 import { _dataGrid } from '../../../../_mock';
@@ -8,7 +8,7 @@ import Iconify from '../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-const columns = [
+const columns: GridColumns = [
   {
     field: 'id',
     headerName: 'ID',

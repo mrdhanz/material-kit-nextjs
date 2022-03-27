@@ -7,7 +7,7 @@ import Iconify from '../../../components/Iconify';
 // ----------------------------------------------------------------------
 
 export default function MailDetailsReplyInput() {
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [message, setMessage] = useState('');
 

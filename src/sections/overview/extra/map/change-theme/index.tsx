@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import ReactMapGL from 'react-map-gl';
 import { useState, useCallback } from 'react';
 // components
@@ -13,11 +12,12 @@ import ControlPanel from './ControlPanel';
 
 // ----------------------------------------------------------------------
 
-MapChangeTheme.propTypes = {
-  themes: PropTypes.object,
+export interface MapChangeThemeProps {
+  themes: object;
+  [key: string]: any;
 };
 
-export default function MapChangeTheme({ themes, ...other }) {
+export default function MapChangeTheme({ themes, ...other }:MapChangeThemeProps) {
   const [selectTheme, setSelectTheme] = useState('outdoors');
 
   const [viewport, setViewport] = useState({

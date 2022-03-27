@@ -30,8 +30,14 @@ export default function LoginForm() {
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
     password: Yup.string().required('Password is required'),
   });
+  interface DefaultValues{
+    email: string;
+    password: string;
+    remember: boolean;
+    [key: string]: any;
+  }
 
-  const defaultValues = {
+  const defaultValues: DefaultValues = {
     email: 'demo@minimals.cc',
     password: 'demo1234',
     remember: true,
@@ -49,19 +55,20 @@ export default function LoginForm() {
     formState: { errors, isSubmitting },
   } = methods;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: typeof defaultValues) => {
     try {
       await login(data.email, data.password);
     } catch (error) {
       console.error(error);
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', error);
+        setError('afterSubmit', error as any);
       }
     }
   };
 
   return (
+    //@ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
@@ -85,6 +92,7 @@ export default function LoginForm() {
       </Stack>
 
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+        {/* @ts-ignore */}
         <RHFCheckbox name="remember" label="Remember me" />
         <NextLink href={PATH_AUTH.resetPassword} passHref>
           <Link variant="subtitle2">Forgot password?</Link>

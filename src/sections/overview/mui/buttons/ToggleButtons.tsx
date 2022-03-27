@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // @mui
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { ToggleButton, ToggleButtonGroup, SxProps } from '@mui/material';
 import Masonry from '@mui/lab/Masonry';
 // components
 import Iconify from '../../../../components/Iconify';
@@ -9,7 +9,7 @@ import { Block } from '../../Block';
 
 // ----------------------------------------------------------------------
 
-const style = {
+const style: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

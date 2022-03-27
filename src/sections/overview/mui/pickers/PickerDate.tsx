@@ -9,7 +9,7 @@ import { Block } from '../../Block';
 // ----------------------------------------------------------------------
 
 export default function PickerDate() {
-  const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState<number | Date | null>(new Date());
 
   return (
     <Masonry columns={{ xs: 1, md: 2 }} spacing={3}>

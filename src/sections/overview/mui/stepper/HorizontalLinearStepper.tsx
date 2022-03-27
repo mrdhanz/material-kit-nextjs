@@ -52,8 +52,8 @@ export default function HorizontalLinearStepper() {
     <>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
+          const stepProps: any = {};
+          const labelProps: any = {};
           if (isStepOptional(index)) {
             labelProps.optional = <Typography variant="caption">Optional</Typography>;
           }

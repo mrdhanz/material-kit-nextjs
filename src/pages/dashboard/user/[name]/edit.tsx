@@ -16,10 +16,11 @@ import Page from '../../../../components/Page';
 import HeaderBreadcrumbs from '../../../../components/HeaderBreadcrumbs';
 // sections
 import UserNewForm from '../../../../sections/@dashboard/user/UserNewForm';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
-UserEdit.getLayout = function getLayout(page) {
+UserEdit.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
@@ -42,7 +43,7 @@ export default function UserEdit() {
           links={[
             { name: 'Dashboard', href: PATH_DASHBOARD.root },
             { name: 'User', href: PATH_DASHBOARD.user.list },
-            { name: capitalCase(name) },
+            { name: capitalCase(name as string) },
           ]}
         />
 

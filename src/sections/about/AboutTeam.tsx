@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -17,9 +17,9 @@ import { MotionViewport, varFade } from '../../components/animate';
 // ----------------------------------------------------------------------
 
 export default function AboutTeam() {
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<Slider>(null);
   const theme = useTheme();
-
+  const [currentIndex, setCurrentIndex] = useState(0);
   const settings = {
     arrows: false,
     slidesToShow: 4,
@@ -78,8 +78,8 @@ export default function AboutTeam() {
       </m.div>
 
       <Box sx={{ position: 'relative' }}>
-        <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious}>
-          <Slider ref={carouselRef} {...settings}>
+        <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious} index={currentIndex}>
+          <Slider ref={carouselRef} {...settings} beforeChange={(c)=> setCurrentIndex(c)}>
             {_carouselsMembers.map((member) => (
               <Box key={member.id} component={m.div} variants={varFade().in} sx={{ px: 1.5, py: 10 }}>
                 <MemberCard member={member} />

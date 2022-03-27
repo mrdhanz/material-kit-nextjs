@@ -39,7 +39,7 @@ const MainStyle = styled('main', {
 // ----------------------------------------------------------------------
 
 export interface DashboardLayoutProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {

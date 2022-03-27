@@ -18,10 +18,11 @@ import {
   AnalyticsCurrentSubject,
   AnalyticsConversionRates,
 } from '../../sections/@dashboard/general/analytics';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
-GeneralAnalytics.getLayout = function getLayout(page) {
+GeneralAnalytics.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 

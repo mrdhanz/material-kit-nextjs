@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 // @mui
-import { Paper, Button, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
+import { Paper, PaperProps, Button, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
 // components
 import { DialogAnimate } from '../../../../../components/animate';
 //
@@ -8,14 +7,15 @@ import getVariant from '../getVariant';
 
 // ----------------------------------------------------------------------
 
-ContainerView.propTypes = {
-  isOpen: PropTypes.bool,
-  onOpen: PropTypes.func,
-  onClose: PropTypes.func,
-  selectVariant: PropTypes.string,
+interface ContainerViewProps extends PaperProps{
+  isOpen?: boolean;
+  onOpen?: ()=> void;
+  onClose?: ()=> void;
+  selectVariant?: string;
+  [key: string]: any;
 };
 
-export default function ContainerView({ isOpen, onOpen, onClose, selectVariant, ...other }) {
+export default function ContainerView({ isOpen = false, onOpen, onClose, selectVariant, ...other }: ContainerViewProps) {
   return (
     <Paper
       sx={{

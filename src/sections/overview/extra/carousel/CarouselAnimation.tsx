@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import { m } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, createRef } from 'react';
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Box, Card, Paper, Button, Typography, CardContent } from '@mui/material';
@@ -16,7 +15,7 @@ import { CarouselArrowIndex } from '../../../../components/carousel';
 
 export default function CarouselAnimation() {
   const theme = useTheme();
-  const carouselRef = useRef(null);
+  const carouselRef = createRef<Slider>();
   const [currentIndex, setCurrentIndex] = useState(theme.direction === 'rtl' ? _carouselsExample.length - 1 : 0);
 
   const settings = {
@@ -58,16 +57,16 @@ export default function CarouselAnimation() {
 
 // ----------------------------------------------------------------------
 
-CarouselItem.propTypes = {
-  isActive: PropTypes.bool,
-  item: PropTypes.shape({
-    description: PropTypes.string,
-    image: PropTypes.string,
-    title: PropTypes.string,
-  }),
+interface CarouselItemProps {
+  isActive?: boolean;
+  item: {
+    description?: string;
+    image?: string;
+    title?: string;
+  };
 };
 
-function CarouselItem({ item, isActive }) {
+function CarouselItem({ item, isActive }: CarouselItemProps) {
   const theme = useTheme();
   const { image, title } = item;
 

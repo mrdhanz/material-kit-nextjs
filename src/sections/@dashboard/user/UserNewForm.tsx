@@ -61,7 +61,6 @@ export default function UserNewForm({ isEdit = false, currentUser }) {
       company: currentUser?.company || '',
       role: currentUser?.role || '',
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentUser]
   );
 
@@ -88,7 +87,6 @@ export default function UserNewForm({ isEdit = false, currentUser }) {
     if (!isEdit) {
       reset(defaultValues);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEdit, currentUser]);
 
   const onSubmit = async () => {
@@ -119,6 +117,7 @@ export default function UserNewForm({ isEdit = false, currentUser }) {
   );
 
   return (
+    //@ts-ignore
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
@@ -186,6 +185,7 @@ export default function UserNewForm({ isEdit = false, currentUser }) {
               />
             )}
 
+            {/* @ts-ignore */}
             <RHFSwitch
               name="isVerified"
               labelPlacement="start"

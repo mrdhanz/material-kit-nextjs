@@ -49,6 +49,7 @@ export default function AccountChangePassword() {
 
   return (
     <Card sx={{ p: 3 }}>
+      {/* @ts-ignore */}
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} alignItems="flex-end">
           <RHFTextField name="oldPassword" type="password" label="Old Password" />

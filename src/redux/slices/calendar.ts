@@ -5,8 +5,33 @@ import axios from '../../utils/axios';
 import { dispatch } from '../store';
 
 // ----------------------------------------------------------------------
+export interface CalendarEventResponse {
+  events: Event[];
+}
 
-const initialState = {
+export interface Event {
+  id?:          string;
+  allDay:      boolean;
+  textColor?:   string;
+  description?: string;
+  start:       Date | null;
+  end:         Date | null;
+  title?:       string;
+}
+
+export interface CalendarState {
+  isLoading: boolean;
+  events:    Event[];
+  error?: any;
+  isOpenModal?: boolean;
+  selectedEventId?: string | null;
+  selectedRange?: {
+    start: Date;
+    end: Date;
+  } | null;
+}
+
+const initialState: CalendarState = {
   isLoading: false,
   error: null,
   events: [],
@@ -114,7 +139,7 @@ export function getEvents() {
 
 // ----------------------------------------------------------------------
 
-export function createEvent(newEvent) {
+export function createEvent(newEvent: Event) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -128,7 +153,7 @@ export function createEvent(newEvent) {
 
 // ----------------------------------------------------------------------
 
-export function updateEvent(eventId, updateEvent) {
+export function updateEvent(eventId: string, updateEvent: Event) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -145,7 +170,7 @@ export function updateEvent(eventId, updateEvent) {
 
 // ----------------------------------------------------------------------
 
-export function deleteEvent(eventId) {
+export function deleteEvent(eventId: string) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
@@ -159,7 +184,7 @@ export function deleteEvent(eventId) {
 
 // ----------------------------------------------------------------------
 
-export function selectRange(start, end) {
+export function selectRange(start: Date, end: Date) {
   return async () => {
     dispatch(
       slice.actions.selectRange({

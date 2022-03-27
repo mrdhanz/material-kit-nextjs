@@ -70,6 +70,7 @@ export default function AccountNotifications() {
 
   return (
     <Card sx={{ p: 3 }}>
+      {/* @ts-ignore */}
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} alignItems="flex-end">
           <Stack spacing={2} sx={{ width: 1 }}>
@@ -79,6 +80,7 @@ export default function AccountNotifications() {
 
             <Stack spacing={1}>
               {ACTIVITY_OPTIONS.map((activity) => (
+                // @ts-ignore
                 <RHFSwitch key={activity.value} name={activity.value} label={activity.label} sx={{ m: 0 }} />
               ))}
             </Stack>
@@ -90,6 +92,7 @@ export default function AccountNotifications() {
             </Typography>
             <Stack spacing={1}>
               {APPLICATION_OPTIONS.map((application) => (
+                // @ts-ignore
                 <RHFSwitch key={application.value} name={application.value} label={application.label} sx={{ m: 0 }} />
               ))}
             </Stack>

@@ -1,6 +1,6 @@
 import MapGL from 'react-map-gl';
 import { useState } from 'react';
-import DeckGL, { ArcLayer } from 'deck.gl';
+import DeckGL from '@deck.gl/react';
 // components
 import {
   MapControlScale,
@@ -8,6 +8,7 @@ import {
   MapControlNavigation,
   MapControlFullscreen,
 } from '../../../../components/map';
+import { ArcLayer, RGBAColor } from 'deck.gl';
 
 // ----------------------------------------------------------------------
 
@@ -39,8 +40,8 @@ export default function MapDeckglOverlay({ ...other }) {
                 },
               ],
               strokeWidth: 4,
-              getSourceColor: () => [0, 0, 255],
-              getTargetColor: () => [0, 255, 0],
+              getSourceColor: () => [0, 0, 255] as RGBAColor,
+              getTargetColor: () => [0, 255, 0] as RGBAColor,
             }),
           ]}
         />

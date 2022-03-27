@@ -15,7 +15,7 @@ KanbanColumnToolBar.propTypes = {
 };
 
 export default function KanbanColumnToolBar({ columnName, onDelete, onUpdate }) {
-  const renameRef = useRef(null);
+  const renameRef = useRef<HTMLInputElement>(null);
 
   const [value, setValue] = useState(columnName);
 

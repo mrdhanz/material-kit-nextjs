@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { memo } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -21,13 +20,13 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ControlPanel.propTypes = {
-  themes: PropTypes.object,
-  selectTheme: PropTypes.string,
-  onChangeTheme: PropTypes.func,
+export interface ControlPanelProps {
+  themes: object;
+  selectTheme: string;
+  onChangeTheme: (value: string)=> void;
 };
 
-function ControlPanel({ themes, selectTheme, onChangeTheme }) {
+function ControlPanel({ themes, selectTheme, onChangeTheme }: ControlPanelProps) {
   return (
     <RootStyle>
       <Typography gutterBottom variant="subtitle2" sx={{ color: 'common.white' }}>

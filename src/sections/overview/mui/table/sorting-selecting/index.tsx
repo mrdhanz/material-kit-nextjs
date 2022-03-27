@@ -106,7 +106,7 @@ export default function SortingSelecting() {
 
   const [orderBy, setOrderBy] = useState('calories');
 
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<string[]>([]);
 
   const [page, setPage] = useState(0);
 
@@ -131,7 +131,7 @@ export default function SortingSelecting() {
 
   const handleClick = (name) => {
     const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
+    let newSelected: string[] = [];
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);

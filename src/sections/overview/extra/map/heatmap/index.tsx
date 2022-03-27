@@ -1,4 +1,4 @@
-import MapGL, { Source, Layer } from 'react-map-gl';
+import MapGL, { Source, Layer, LayerProps } from 'react-map-gl';
 import { useEffect, useState, useMemo } from 'react';
 // components
 import {
@@ -38,7 +38,7 @@ const HEATMAP_LAYER = {
     'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 2, 9, 20],
     'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0],
   },
-};
+} as LayerProps;
 
 // ----------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ export default function MapHeatmap({ ...other }) {
 
   const [selectedTime, selectTime] = useState(0);
 
-  const [earthquakes, setEarthQuakes] = useState();
+  const [earthquakes, setEarthQuakes] = useState<any>();
 
   const [viewport, setViewport] = useState({
     latitude: 40,

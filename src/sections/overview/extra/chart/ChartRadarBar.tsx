@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 import { useTheme } from '@mui/material/styles';
 // components
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
+import { ApexOptions } from 'apexcharts';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ export default function ChartRadarBar() {
         },
       },
     },
-  });
+  }) as ApexOptions;
 
   return <ReactApexChart type="radar" series={CHART_DATA} options={chartOptions} width={540} />;
 }

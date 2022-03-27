@@ -37,9 +37,9 @@ ProfilePostCard.propTypes = {
 export default function ProfilePostCard({ post }) {
   const { user } = useAuth();
 
-  const commentInputRef = useRef(null);
+  const commentInputRef = useRef<HTMLInputElement>(null);
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [isLiked, setLiked] = useState(post.isLiked);
 
