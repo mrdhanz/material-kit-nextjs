@@ -1,4 +1,4 @@
-import FullCalendar, { DateSelectArg, EventDropArg, EventSourceInput, EventClickArg  } from '@fullcalendar/react'; // => request placed at the top
+import FullCalendar, { DateSelectArg, EventDropArg, EventSourceInput, EventClickArg } from '@fullcalendar/react'; // => request placed at the top
 import listPlugin from '@fullcalendar/list';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -10,7 +10,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Card, Button, Container, DialogTitle } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
-import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange, CalendarState } from '../../redux/slices/calendar';
+import {
+  getEvents,
+  openModal,
+  closeModal,
+  updateEvent,
+  selectEvent,
+  selectRange,
+  CalendarState,
+} from '../../redux/slices/calendar';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
 // hooks

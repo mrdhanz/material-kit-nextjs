@@ -77,7 +77,7 @@ export interface CarouselItemProps {
     image?: string;
     title?: string;
   };
-};
+}
 
 function CarouselItem({ item }) {
   const { image, title } = item;

@@ -30,9 +30,9 @@ const RootStyle = styled('div')(({ theme }) => ({
 interface MailDetailsToolbarProps {
   mail: any;
   [key: string]: any;
-};
+}
 
-export default function MailDetailsToolbar({ mail, ...other }:MailDetailsToolbarProps) {
+export default function MailDetailsToolbar({ mail, ...other }: MailDetailsToolbarProps) {
   const { query, push } = useRouter();
 
   const { systemLabel, customLabel } = query;

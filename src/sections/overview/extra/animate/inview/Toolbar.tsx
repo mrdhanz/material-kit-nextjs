@@ -9,11 +9,11 @@ import React from 'react';
 interface ToolbarProps extends PaperProps {
   isText?: boolean;
   isMulti?: boolean;
-  onChangeText?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean)=> void;
-  onChangeMulti?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean)=> void;
+  onChangeText?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
+  onChangeMulti?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
   onRefresh?: () => void;
   [key: string]: any;
-};
+}
 
 export default function Toolbar({ isText, isMulti, onChangeText, onChangeMulti, onRefresh, ...other }: ToolbarProps) {
   return (

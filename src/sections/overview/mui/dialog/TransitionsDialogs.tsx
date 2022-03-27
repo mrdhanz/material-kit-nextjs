@@ -1,6 +1,15 @@
 import { forwardRef, useState } from 'react';
 // @mui
-import { Slide, Dialog, Button, DialogTitle, DialogActions, DialogContent, DialogContentText, SlideProps } from '@mui/material';
+import {
+  Slide,
+  Dialog,
+  Button,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  SlideProps,
+} from '@mui/material';
 
 // ----------------------------------------------------------------------
 

@@ -64,7 +64,7 @@ interface CarouselItemProps {
     image?: string;
     title?: string;
   };
-};
+}
 
 function CarouselItem({ item, isActive }: CarouselItemProps) {
   const theme = useTheme();

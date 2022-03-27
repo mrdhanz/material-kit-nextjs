@@ -11,43 +11,42 @@ export interface KanbanResponse {
 }
 
 export interface Board {
-  cards:       Card[];
-  columns:     Column[];
+  cards: Card[];
+  columns: Column[];
   columnOrder: string[];
 }
 
 export interface Card {
-  id:          string;
-  name:        string;
+  id: string;
+  name: string;
   description: string;
-  assignee:    Assignee[];
-  due:         Array<number | null>;
+  assignee: Assignee[];
+  due: Array<number | null>;
   attachments: string[];
-  comments:    Comment[];
-  completed:   boolean;
+  comments: Comment[];
+  completed: boolean;
 }
 
 export interface Assignee {
-  id:     string;
+  id: string;
   avatar: string;
-  name:   string;
+  name: string;
 }
 
 export interface Comment {
-  id:          string;
-  avatar:      string;
-  name:        string;
-  createdAt:   Date;
+  id: string;
+  avatar: string;
+  name: string;
+  createdAt: Date;
   messageType: string;
-  message:     string;
+  message: string;
 }
 
 export interface Column {
-  id:      string;
-  name:    string;
+  id: string;
+  name: string;
   cardIds: string[];
 }
-
 
 function objFromArray(array: any, key = 'id') {
   return array.reduce((accumulator: any, current: any) => {

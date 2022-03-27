@@ -25,7 +25,7 @@ export interface Country {
 export interface MapMarkersPopupsProps extends InteractiveMapProps {
   data: Array<Country>;
   [key: string]: any;
-};
+}
 
 export default function MapMarkersPopups({ data, ...other }: MapMarkersPopupsProps) {
   const [tooltip, setTooltip] = useState<Country | null>(null);

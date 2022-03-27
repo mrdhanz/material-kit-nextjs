@@ -7,7 +7,6 @@ import { fNumber } from '../../../../utils/formatNumber';
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
 import { ApexOptions } from 'apexcharts';
 
-
 // ----------------------------------------------------------------------
 
 const CHART_DATA = [44, 55];

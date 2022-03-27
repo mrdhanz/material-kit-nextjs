@@ -10,18 +10,18 @@ export interface CalendarEventResponse {
 }
 
 export interface Event {
-  id?:          string;
-  allDay:      boolean;
-  textColor?:   string;
+  id?: string;
+  allDay: boolean;
+  textColor?: string;
   description?: string;
-  start:       Date | null;
-  end:         Date | null;
-  title?:       string;
+  start: Date | null;
+  end: Date | null;
+  title?: string;
 }
 
 export interface CalendarState {
   isLoading: boolean;
-  events:    Event[];
+  events: Event[];
   error?: any;
   isOpenModal?: boolean;
   selectedEventId?: string | null;

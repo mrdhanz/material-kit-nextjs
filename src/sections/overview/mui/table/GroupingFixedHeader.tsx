@@ -33,7 +33,7 @@ interface GroupingData {
   id: string;
   label: string;
   minWidth?: number;
-  align?: "inherit" | "left" | "center" | "right" | "justify";
+  align?: 'inherit' | 'left' | 'center' | 'right' | 'justify';
   format?: (value: string | number) => string;
 }
 
@@ -59,7 +59,7 @@ const COLUMNS: GroupingData[] = [
     label: 'Density',
     minWidth: 170,
     align: 'right',
-    format: (value) => typeof value !== 'string' ? value.toFixed(2) : value,
+    format: (value) => (typeof value !== 'string' ? value.toFixed(2) : value),
   },
 ];
 

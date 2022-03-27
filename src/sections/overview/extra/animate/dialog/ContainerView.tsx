@@ -7,15 +7,21 @@ import getVariant from '../getVariant';
 
 // ----------------------------------------------------------------------
 
-interface ContainerViewProps extends PaperProps{
+interface ContainerViewProps extends PaperProps {
   isOpen?: boolean;
-  onOpen?: ()=> void;
-  onClose?: ()=> void;
+  onOpen?: () => void;
+  onClose?: () => void;
   selectVariant?: string;
   [key: string]: any;
-};
+}
 
-export default function ContainerView({ isOpen = false, onOpen, onClose, selectVariant, ...other }: ContainerViewProps) {
+export default function ContainerView({
+  isOpen = false,
+  onOpen,
+  onClose,
+  selectVariant,
+  ...other
+}: ContainerViewProps) {
   return (
     <Paper
       sx={{

@@ -83,8 +83,8 @@ interface CarouselItemProps {
   item: {
     image?: string;
     title?: string;
-  }
-};
+  };
+}
 
 function CarouselItem({ item }: CarouselItemProps) {
   const { image, title } = item;

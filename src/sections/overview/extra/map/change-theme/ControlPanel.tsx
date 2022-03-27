@@ -23,8 +23,8 @@ const RootStyle = styled('div')(({ theme }) => ({
 export interface ControlPanelProps {
   themes: object;
   selectTheme: string;
-  onChangeTheme: (value: string)=> void;
-};
+  onChangeTheme: (value: string) => void;
+}
 
 function ControlPanel({ themes, selectTheme, onChangeTheme }: ControlPanelProps) {
   return (

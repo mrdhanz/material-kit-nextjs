@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 import ReactApexChart, { BaseOptionChart } from '../../../../components/chart';
 import { ApexOptions } from 'apexcharts';
 
-
 // ----------------------------------------------------------------------
 
 const CHART_DATA = [

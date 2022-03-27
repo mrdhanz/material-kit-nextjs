@@ -10,7 +10,7 @@ interface BlockProps {
   children: React.ReactNode;
   sx?: SxProps;
   title?: string;
-};
+}
 
 export function Block({ title, sx, children }: BlockProps) {
   return (

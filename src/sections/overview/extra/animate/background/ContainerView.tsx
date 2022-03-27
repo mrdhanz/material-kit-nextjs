@@ -9,7 +9,7 @@ import getVariant from '../getVariant';
 interface ContainerViewProps extends PaperProps {
   selectVariant?: string;
   [key: string]: any;
-};
+}
 
 export default function ContainerView({ selectVariant, ...other }: ContainerViewProps) {
   const isKenburns = selectVariant?.includes('kenburns');

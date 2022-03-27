@@ -13,14 +13,14 @@ import getVariant from '../getVariant';
 interface ContainerViewProps {
   selectVariant?: string;
   [key: string]: any;
-};
+}
 
 export default function ContainerView({ selectVariant, ...other }: ContainerViewProps) {
   const scrollRef = createRef<HTMLDivElement>();
 
   return (
     <Paper
-      component={m.div}      
+      component={m.div}
       ref={scrollRef}
       variants={varContainer()}
       sx={{

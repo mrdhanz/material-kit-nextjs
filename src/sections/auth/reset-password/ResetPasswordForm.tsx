@@ -15,7 +15,7 @@ import { FormProvider, RHFTextField } from '../../../components/hook-form';
 interface ResetPasswordFormProps {
   onSent: () => void;
   onGetEmail: (value: string) => void;
-};
+}
 
 export default function ResetPasswordForm({ onSent, onGetEmail }: ResetPasswordFormProps) {
   const isMountedRef = useIsMountedRef();

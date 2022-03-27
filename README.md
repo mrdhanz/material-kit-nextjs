@@ -26,12 +26,13 @@ yarn run dev
 
 👤 **minimals.cc**
 
-* Website: minimals.cc
-* Github: [@mrdhanz](https://github.com/mrdhanz)
+- Website: minimals.cc
+- Github: [@mrdhanz](https://github.com/mrdhanz)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

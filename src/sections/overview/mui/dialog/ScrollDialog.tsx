@@ -6,7 +6,7 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogConten
 
 export default function ScrollDialog() {
   const [open, setOpen] = useState(false);
-  const [scroll, setScroll] = useState< "body" | "paper" | undefined>('paper');
+  const [scroll, setScroll] = useState<'body' | 'paper' | undefined>('paper');
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);

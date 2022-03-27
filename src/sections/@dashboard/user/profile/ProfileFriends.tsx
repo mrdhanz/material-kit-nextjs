@@ -13,7 +13,7 @@ export interface ProfileFriendsProps {
   friends?: Friend[];
   findFriends?: string;
   onFindFriends: (value: string) => void;
-};
+}
 
 export default function ProfileFriends({ friends = [], findFriends, onFindFriends }: ProfileFriendsProps) {
   const friendFiltered = applyFilter(friends, findFriends);

@@ -141,7 +141,7 @@ export default function ReactHookForm() {
 
         <Grid item xs={12} md={6}>
           <Stack spacing={3}>
-            <RHFEditor id='react-hook-form-editor' value='' name="editor" />
+            <RHFEditor id="react-hook-form-editor" value="" name="editor" />
 
             <div>
               <Stack direction="row" alignItems="center" spacing={3}>

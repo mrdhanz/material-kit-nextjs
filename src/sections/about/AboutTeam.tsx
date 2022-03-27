@@ -79,7 +79,7 @@ export default function AboutTeam() {
 
       <Box sx={{ position: 'relative' }}>
         <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious} index={currentIndex}>
-          <Slider ref={carouselRef} {...settings} beforeChange={(c)=> setCurrentIndex(c)}>
+          <Slider ref={carouselRef} {...settings} beforeChange={(c) => setCurrentIndex(c)}>
             {_carouselsMembers.map((member) => (
               <Box key={member.id} component={m.div} variants={varFade().in} sx={{ px: 1.5, py: 10 }}>
                 <MemberCard member={member} />

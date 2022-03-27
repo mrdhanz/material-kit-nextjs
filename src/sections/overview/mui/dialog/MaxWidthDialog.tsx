@@ -33,9 +33,7 @@ export default function MaxWidthDialog() {
   };
 
   const handleMaxWidthChange = (event) => {
-    setMaxWidth(
-      event.target.value
-    );
+    setMaxWidth(event.target.value);
   };
 
   const handleFullWidthChange = (event) => {

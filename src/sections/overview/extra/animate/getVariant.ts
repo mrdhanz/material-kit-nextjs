@@ -12,7 +12,8 @@ import {
 } from '../../../../components/animate';
 
 // ----------------------------------------------------------------------
-export const getVariant = (variant = 'slideInUp') => ({
+export const getVariant = (variant = 'slideInUp') =>
+  ({
     // Slide
     slideInUp: varSlide().inUp,
     slideInDown: varSlide().inDown,
@@ -81,5 +82,5 @@ export const getVariant = (variant = 'slideInUp') => ({
     color3x: varBgColor({ colors: ['#19dcea', '#b22cff', '#ea2222'] }),
     color4x: varBgColor({ colors: ['#19dcea', '#b22cff', '#ea2222', '#f5be10'] }),
     color5x: varBgColor({ colors: ['#19dcea', '#b22cff', '#ea2222', '#f5be10', '#3bd80d'] }),
-  }[variant])
+  }[variant]);
 export default getVariant;

@@ -70,7 +70,7 @@ export default function AccountSocialLinks({ myProfile }) {
   };
 
   return (
-    <Card sx={{ p: 3 }}>      
+    <Card sx={{ p: 3 }}>
       {/* @ts-ignore */}
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} alignItems="flex-end">

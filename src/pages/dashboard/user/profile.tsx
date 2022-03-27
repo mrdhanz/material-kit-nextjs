@@ -61,7 +61,7 @@ export default function UserProfile() {
   const handleChangeTab = (newValue: ProfileTab) => {
     setCurrentTab(newValue);
   };
-  
+
   const PROFILE_TABS = [
     {
       value: 'profile',

@@ -43,7 +43,7 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
   },
 }));
 
-const QontoStepIconRoot = styled('div')<{[key: string]: any}>(({ theme, ownerState }) => ({
+const QontoStepIconRoot = styled('div')<{ [key: string]: any }>(({ theme, ownerState }) => ({
   height: 22,
   display: 'flex',
   alignItems: 'center',
@@ -106,7 +106,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   },
 }));
 
-const ColorlibStepIconRoot = styled('div')<{[key: string]: any}>(({ theme, ownerState }) => ({
+const ColorlibStepIconRoot = styled('div')<{ [key: string]: any }>(({ theme, ownerState }) => ({
   zIndex: 1,
   width: 50,
   height: 50,

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 // @mui
-import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel, SxProps} from '@mui/material';
+import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel, SxProps } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

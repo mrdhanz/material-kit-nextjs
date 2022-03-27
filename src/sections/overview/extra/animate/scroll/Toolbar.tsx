@@ -8,7 +8,7 @@ import Iconify from '../../../../../components/Iconify';
 interface ToolbarProps extends PaperProps {
   onRefresh?: () => void;
   [key: string]: any;
-};
+}
 
 export default function Toolbar({ onRefresh, ...other }: ToolbarProps) {
   return (

@@ -15,9 +15,9 @@ import ControlPanel from './ControlPanel';
 export interface MapChangeThemeProps {
   themes: object;
   [key: string]: any;
-};
+}
 
-export default function MapChangeTheme({ themes, ...other }:MapChangeThemeProps) {
+export default function MapChangeTheme({ themes, ...other }: MapChangeThemeProps) {
   const [selectTheme, setSelectTheme] = useState('outdoors');
 
   const [viewport, setViewport] = useState({

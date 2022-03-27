@@ -41,11 +41,13 @@ export default function KanbanColumnAdd() {
   const handleCreateColumn = async () => {
     try {
       if (name) {
-        dispatch(createColumn({
-          name,
-          id: '',
-          cardIds: []
-        }));
+        dispatch(
+          createColumn({
+            name,
+            id: '',
+            cardIds: [],
+          })
+        );
         setName('');
       }
       handleClose();

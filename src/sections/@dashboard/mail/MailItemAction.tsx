@@ -34,9 +34,15 @@ interface MailItemActionProps {
   handleMarkRead?: () => void;
   handleHidden?: () => void;
   [key: string]: any;
-};
+}
 
-export default function MailItemAction({ handleArchive, handleDelete, handleMarkRead, handleHidden, ...other }: MailItemActionProps) {
+export default function MailItemAction({
+  handleArchive,
+  handleDelete,
+  handleMarkRead,
+  handleHidden,
+  ...other
+}: MailItemActionProps) {
   const MAIL_ACTIONS = [
     {
       name: 'Archive',

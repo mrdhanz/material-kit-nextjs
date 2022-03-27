@@ -23,7 +23,7 @@ interface ContainerViewProps extends PaperProps {
   isMulti?: boolean;
   selectVariant?: string;
   [key: string]: any;
-};
+}
 
 export default function ContainerView({ isText, isMulti, selectVariant, ...other }: ContainerViewProps) {
   const items = isMulti ? IMG : IMG.slice(0, 1);

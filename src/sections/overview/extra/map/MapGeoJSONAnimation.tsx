@@ -12,7 +12,11 @@ import {
 import { Point } from 'geojson';
 
 // ----------------------------------------------------------------------
-interface PointOnCircleProps { center: [number, number], angle: number, radius: number }
+interface PointOnCircleProps {
+  center: [number, number];
+  angle: number;
+  radius: number;
+}
 function pointOnCircle({ center, angle, radius }: PointOnCircleProps): Point {
   return {
     type: 'Point',
@@ -63,13 +67,14 @@ export default function MapGeoJSONAnimation({ ...other }) {
         <MapControlGeolocate />
 
         {pointData && (
-          <Source type="geojson" data={{
-            geometry: pointData,
-            type: 'Feature',
-            properties: {
-            
-            }
-          }}>
+          <Source
+            type="geojson"
+            data={{
+              geometry: pointData,
+              type: 'Feature',
+              properties: {},
+            }}
+          >
             <Layer {...pointLayer} />
           </Source>
         )}

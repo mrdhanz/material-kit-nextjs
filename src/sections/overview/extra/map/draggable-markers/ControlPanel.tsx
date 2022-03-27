@@ -29,7 +29,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export interface ControlPanelProps {
   events: object;
-};
+}
 
 function ControlPanel({ events = {} }: ControlPanelProps) {
   return (

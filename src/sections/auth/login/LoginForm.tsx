@@ -30,7 +30,7 @@ export default function LoginForm() {
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
     password: Yup.string().required('Password is required'),
   });
-  interface DefaultValues{
+  interface DefaultValues {
     email: string;
     password: string;
     remember: boolean;

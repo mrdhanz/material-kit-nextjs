@@ -15,7 +15,7 @@ import ControlPanel from './ControlPanel';
 interface MapViewportAnimationProps {
   data?: Array<any>;
   [key: string]: any;
-};
+}
 
 export default function MapViewportAnimation({ data = [], ...other }: MapViewportAnimationProps) {
   const [selectedCity, setSelectedCity] = useState(data[2].city);

@@ -2,7 +2,13 @@ import { useState } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Box, Rating, LinearProgress, IconButton } from '@mui/material';
-import { DataGrid, GridToolbar, getGridNumericColumnOperators, GridSelectionModel, GridColumns } from '@mui/x-data-grid';
+import {
+  DataGrid,
+  GridToolbar,
+  getGridNumericColumnOperators,
+  GridSelectionModel,
+  GridColumns,
+} from '@mui/x-data-grid';
 // utils
 import createAvatar from '../../../../utils/createAvatar';
 import { fPercent } from '../../../../utils/formatNumber';
@@ -188,7 +194,7 @@ interface RatingInputValueProps {
   item: {
     value?: number;
   };
-};
+}
 
 function RatingInputValue({ item, applyValue }: RatingInputValueProps) {
   return (

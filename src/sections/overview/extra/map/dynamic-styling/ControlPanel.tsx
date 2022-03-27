@@ -69,7 +69,7 @@ const ColorBoxStyle = styled('div')(({ theme }) => ({
 
 export interface ControlPanelProps {
   onChange: (mapStyle: any) => void;
-};
+}
 
 function ControlPanel({ onChange }: ControlPanelProps) {
   const theme = useTheme();

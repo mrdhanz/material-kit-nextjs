@@ -29,7 +29,7 @@ export interface ControlPanelProps {
   selectedTime: number;
   onChangeTime: (time: number) => void;
   onChangeAllDays: (allDays: boolean) => void;
-};
+}
 
 function ControlPanel({ startTime, endTime, allDays, selectedTime, onChangeTime, onChangeAllDays }: ControlPanelProps) {
   const day = 24 * 60 * 60 * 1000;

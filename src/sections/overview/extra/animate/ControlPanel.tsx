@@ -11,7 +11,7 @@ interface ControlPanelProps {
   selectVariant: string;
   onChangeVariant: (event: React.ChangeEvent<HTMLInputElement>, value: string) => void;
   sx?: SxProps<Theme>;
-};
+}
 
 export default function ControlPanel({ variantKey, selectVariant, onChangeVariant, sx }: ControlPanelProps) {
   return (

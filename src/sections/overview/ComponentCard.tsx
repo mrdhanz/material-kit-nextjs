@@ -14,7 +14,7 @@ interface ComponentCardProps {
     icon?: string;
     name?: string;
   };
-};
+}
 
 export default function ComponentCard({ item }: ComponentCardProps) {
   const { name, icon, href } = item;

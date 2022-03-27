@@ -24,7 +24,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 export interface ControlPanelProps {
   year: number;
   onChange: (year: number) => void;
-};
+}
 
 function ControlPanel({ year, onChange }: ControlPanelProps) {
   return (

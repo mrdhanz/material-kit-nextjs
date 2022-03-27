@@ -27,7 +27,7 @@ export interface ControlPanelProps {
   data: Array<City>;
   selectedCity?: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>, city: City) => void;
-};
+}
 
 function ControlPanel({ data, selectedCity, handleChange }: ControlPanelProps) {
   return (
